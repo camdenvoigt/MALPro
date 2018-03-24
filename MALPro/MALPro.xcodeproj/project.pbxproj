@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332382065E21700F6EACA /* MALTabBarController.swift */; };
-		0CF332402065E39700F6EACA /* KYEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3323D2065E39600F6EACA /* KYEmbedDrawerControllerSegue.swift */; };
-		0CF332412065E39700F6EACA /* KYDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3323E2065E39600F6EACA /* KYDrawerController.swift */; };
-		0CF332422065E39700F6EACA /* KYEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3323F2065E39600F6EACA /* KYEmbedMainControllerSegue.swift */; };
 		0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332452065E52F00F6EACA /* DrawerViewController.swift */; };
 		0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */; };
 		0CF3324C2065E95200F6EACA /* AnimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */; };
 		0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */; };
 		0CF332502065F67300F6EACA /* AnimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324F2065F67300F6EACA /* AnimeList.swift */; };
+		332A1CEE764BBF64232C8B9C /* Pods_MALPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C11CA1EA259A8D203C58757 /* Pods_MALPro.framework */; };
+		5855D9C22065EC9A0054E244 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C12065EC9A0054E244 /* NetworkingError.swift */; };
+		5855D9C4206603410054E244 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C3206603410054E244 /* ModelUtils.swift */; };
+		5855D9C620660BA10054E244 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C520660BA10054E244 /* Episode.swift */; };
+		5855D9C820660FE80054E244 /* VoiceActingRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C720660FE80054E244 /* VoiceActingRole.swift */; };
 		589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EB92065DADE00EA2A47 /* AppDelegate.swift */; };
 		589D0EBF2065DADE00EA2A47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EBD2065DADE00EA2A47 /* Main.storyboard */; };
 		589D0EC12065DADE00EA2A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EC02065DADE00EA2A47 /* Assets.xcassets */; };
@@ -25,6 +27,7 @@
 		589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EE82065DC8E00EA2A47 /* Anime.swift */; };
 		589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* Person.swift */; };
 		589D0EED2065DD0400EA2A47 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEC2065DD0400EA2A47 /* Character.swift */; };
+		589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,14 +49,15 @@
 
 /* Begin PBXFileReference section */
 		0CF332382065E21700F6EACA /* MALTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALTabBarController.swift; sourceTree = "<group>"; };
-		0CF3323D2065E39600F6EACA /* KYEmbedDrawerControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedDrawerControllerSegue.swift; sourceTree = "<group>"; };
-		0CF3323E2065E39600F6EACA /* KYDrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYDrawerController.swift; sourceTree = "<group>"; };
-		0CF3323F2065E39600F6EACA /* KYEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
 		0CF332452065E52F00F6EACA /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
 		0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeTableViewCell.xib; sourceTree = "<group>"; };
 		0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTableViewController.swift; sourceTree = "<group>"; };
 		0CF3324F2065F67300F6EACA /* AnimeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeList.swift; sourceTree = "<group>"; };
+		5855D9C12065EC9A0054E244 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		5855D9C3206603410054E244 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
+		5855D9C520660BA10054E244 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		5855D9C720660FE80054E244 /* VoiceActingRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceActingRole.swift; sourceTree = "<group>"; };
 		589D0EB62065DADE00EA2A47 /* MALPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MALPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		589D0EB92065DADE00EA2A47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		589D0EBE2065DADE00EA2A47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +73,10 @@
 		589D0EE82065DC8E00EA2A47 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		589D0EEA2065DCE500EA2A47 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		589D0EEC2065DD0400EA2A47 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALNetworkController.swift; sourceTree = "<group>"; };
+		7C11CA1EA259A8D203C58757 /* Pods_MALPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MALPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C07AA1FEE4130AD85033E4CD /* Pods-MALPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MALPro.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MALPro/Pods-MALPro.release.xcconfig"; sourceTree = "<group>"; };
+		F62887725C209287DC87F4D4 /* Pods-MALPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MALPro.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MALPro/Pods-MALPro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332A1CEE764BBF64232C8B9C /* Pods_MALPro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,17 +124,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		0CF3323C2065E39600F6EACA /* Drawer */ = {
-			isa = PBXGroup;
-			children = (
-				0CF3323D2065E39600F6EACA /* KYEmbedDrawerControllerSegue.swift */,
-				0CF3323E2065E39600F6EACA /* KYDrawerController.swift */,
-				0CF3323F2065E39600F6EACA /* KYEmbedMainControllerSegue.swift */,
-			);
-			name = Drawer;
-			path = "../../../../../Downloads/KYDrawerController-master/KYDrawerController/Drawer";
-			sourceTree = "<group>";
-		};
 		589D0EAD2065DADE00EA2A47 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +131,8 @@
 				589D0ECD2065DADE00EA2A47 /* MALProTests */,
 				589D0ED82065DADF00EA2A47 /* MALProUITests */,
 				589D0EB72065DADE00EA2A47 /* Products */,
+				78C680668959CD10C22D6AF0 /* Pods */,
+				EB0F6BD659700BA7246A3ADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,7 +149,7 @@
 		589D0EB82065DADE00EA2A47 /* MALPro */ = {
 			isa = PBXGroup;
 			children = (
-				0CF3323C2065E39600F6EACA /* Drawer */,
+				589D0EEE2065E10600EA2A47 /* Networking */,
 				0CF332372065E13900F6EACA /* Controllers */,
 				0CF332362065E12D00F6EACA /* Views */,
 				589D0EE72065DC6800EA2A47 /* Models */,
@@ -184,11 +184,40 @@
 			isa = PBXGroup;
 			children = (
 				589D0EE82065DC8E00EA2A47 /* Anime.swift */,
-				589D0EEA2065DCE500EA2A47 /* Person.swift */,
 				589D0EEC2065DD0400EA2A47 /* Character.swift */,
+				5855D9C520660BA10054E244 /* Episode.swift */,
+				589D0EEA2065DCE500EA2A47 /* Person.swift */,
+				5855D9C720660FE80054E244 /* VoiceActingRole.swift */,
+				5855D9C3206603410054E244 /* ModelUtils.swift */,
 				0CF3324F2065F67300F6EACA /* AnimeList.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		589D0EEE2065E10600EA2A47 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */,
+				5855D9C12065EC9A0054E244 /* NetworkingError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		78C680668959CD10C22D6AF0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F62887725C209287DC87F4D4 /* Pods-MALPro.debug.xcconfig */,
+				C07AA1FEE4130AD85033E4CD /* Pods-MALPro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB0F6BD659700BA7246A3ADF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C11CA1EA259A8D203C58757 /* Pods_MALPro.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 589D0EDE2065DADF00EA2A47 /* Build configuration list for PBXNativeTarget "MALPro" */;
 			buildPhases = (
+				5E79B03B366A8E1D2DA6AC1A /* [CP] Check Pods Manifest.lock */,
 				589D0EB22065DADE00EA2A47 /* Sources */,
 				589D0EB32065DADE00EA2A47 /* Frameworks */,
 				589D0EB42065DADE00EA2A47 /* Resources */,
+				28020B3814A64518C50653D7 /* [CP] Embed Pods Frameworks */,
+				F4F103642F4461F9D2A7FEE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,15 +353,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28020B3814A64518C50653D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-MALPro/Pods-MALPro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MALPro/Pods-MALPro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E79B03B366A8E1D2DA6AC1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MALPro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4F103642F4461F9D2A7FEE0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MALPro/Pods-MALPro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		589D0EB22065DADE00EA2A47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF332402065E39700F6EACA /* KYEmbedDrawerControllerSegue.swift in Sources */,
-				0CF332422065E39700F6EACA /* KYEmbedMainControllerSegue.swift in Sources */,
+				589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */,
+				5855D9C820660FE80054E244 /* VoiceActingRole.swift in Sources */,
+				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
+				5855D9C22065EC9A0054E244 /* NetworkingError.swift in Sources */,
+				589D0EED2065DD0400EA2A47 /* Character.swift in Sources */,
+				5855D9C4206603410054E244 /* ModelUtils.swift in Sources */,
+				589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */,
+				5855D9C620660BA10054E244 /* Episode.swift in Sources */,
 				0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */,
-				0CF332412065E39700F6EACA /* KYDrawerController.swift in Sources */,
 				0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */,
 				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
 				0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */,
@@ -501,6 +592,7 @@
 		};
 		589D0EDF2065DADF00EA2A47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62887725C209287DC87F4D4 /* Pods-MALPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,6 +607,7 @@
 		};
 		589D0EE02065DADF00EA2A47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C07AA1FEE4130AD85033E4CD /* Pods-MALPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
