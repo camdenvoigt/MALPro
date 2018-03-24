@@ -15,9 +15,11 @@ public class ModelUtils {
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.setLocalizedDateFormatFromTemplate("yyyy-mm-dd")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
         guard let date = dateFormatter.date(from: dateString) else {
-            fatalError("ERROR: Date conversion failed due to mismatched format.")
+            return nil
         }
         
         return date

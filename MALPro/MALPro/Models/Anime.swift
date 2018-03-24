@@ -49,6 +49,9 @@ public class Anime {
     var background: String?
     var premiered: String?
     var broadcast: String?
+    var characters: [AnimeCharacter]?
+    var episodes: [AnimeEpisode]?
+    var staff: [AnimePerson]?
     
     init(id: Int) {
         self.id = id
@@ -85,14 +88,37 @@ public class Anime {
         self.background = json["background"] as? String
         self.premiered = json["premiered"] as? String
         self.broadcast = json["boradcast"] as? String
+        if let characters = json["character"] as? [[String: Any?]] {
+            self.characters = [AnimeCharacter]()
+            for character in characters {
+                self.characters?.append(AnimeCharacter(dict: character))
+            }
+        }
+        if let episodes = json["episode"] as? [[String: Any?]] {
+            self.episodes = [AnimeEpisode]()
+            for episode in episodes {
+                self.episodes?.append(AnimeEpisode(dict: episode))
+            }
+        }
+        if let people = json["staff"] as? [[String: Any?]] {
+            self.staff = [AnimePerson]()
+            for person in people {
+                self.staff?.append(AnimePerson(dict: person, search: false))
+            }
+        }
     }
     
-    // For constructing partial anime from Person
-    init(dict: [String : Any?]) {
-        self.id = dict["mal_id"] as! Int
+    // For constructing partial anime from Person and Search Results
+    init(dict: [String : Any?], search: Bool) {
+        self.id = (search) ? dict["id"] as! Int : dict["mal_id"] as! Int
         self.title = dict["name"] as? String
         self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
         self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
+        
+        self.synopsis = dict["description"] as? String
+        self.score = dict["score"] as? Double
+        self.episodeCount = dict["episodes"] as? Int
+        self.members = dict["members"] as? Int
     }
     
     private func animeTypeFromString(_ type: String?) ->  AnimeType? {
