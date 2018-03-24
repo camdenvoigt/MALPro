@@ -8,17 +8,50 @@
 
 import Foundation
 
+enum CharacterType {
+    case main
+    case supporting
+}
+
 public class Character {
     var id: Int
     var canonicalLink: URL?
     var name: String?
     var nameJapanese: String?
-    var nicknames: String?
     var about: String?
     var favorites: Int?
     var imageUrl: URL?
+    var voiceActors: [Person]?
     
     init(id: Int) {
         self.id = id
+    }
+    
+    // For constructing full Character from json
+    init(data: Any, full: Bool) throws {
+        guard let json = data as? Dictionary<String, Any> else {
+            throw NetworkError.JSONCastError("Could not cast data object for Anime object")
+        }
+        
+        self.id = json["mal_id"] as! Int
+        self.canonicalLink = ModelUtils.urlFromString((full) ? json["link_canonical"] as? String : json["url"] as? String)
+        self.name = json["name"] as? String
+        self.nameJapanese = json["name_kanji"] as? String
+        self.about = json["about"] as? String
+        self.favorites = json["member_favorites"] as? Int
+        self.imageUrl = ModelUtils.urlFromString(json["image_url"] as? String)
+        if let voiceActors = json["voice_actor"] as? [Dictionary<String, Any>] {
+            for voiceActor in voiceActors {
+                self.voiceActors?.append(Person(dict: voiceActor))
+            }
+        }
+    }
+    
+    // For constructing partial character from Person
+    init(dict: [String : Any?]) {
+        self.id = dict["mal_id"] as! Int
+        self.name = dict["name"] as? String
+        self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
+        self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
     }
 }
