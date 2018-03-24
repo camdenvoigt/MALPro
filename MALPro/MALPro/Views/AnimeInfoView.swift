@@ -19,7 +19,6 @@ class AnimeInfoView: NibView {
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var studioLabel: UILabel!
     
-    
     func fillInfo(anime: Anime) {
         typeLabel.text = typeString(type: anime.type)
         episodeCountLabel.text = anime.episodeCount != nil ? "\(anime.episodeCount!)" : ""
@@ -27,6 +26,8 @@ class AnimeInfoView: NibView {
         scoreLabel.text = anime.score != nil ? "\(anime.score!)" : ""
         rankLabel.text = anime.rank != nil ? "#\(anime.rank!)" : ""
         popularityLabel.text = anime.popularity != nil ? "#\(anime.popularity!)" : ""
+        genresLabel.text = anime.genres != nil ? anime.genres!.flatMap({$0}).joined(separator: ", ") : ""
+        studioLabel.text = anime.studios != nil ? anime.studios!.flatMap({$0}).joined(separator: ", ") : ""
     }
     
     //MARK: - Private Helper Functions

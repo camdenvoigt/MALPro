@@ -65,7 +65,6 @@ class AnimeViewController: UIViewController {
         }
     }
     
-    
     func updateView() {
         guard let anime = anime else {
             return
@@ -78,8 +77,11 @@ class AnimeViewController: UIViewController {
         if nil != anime.synopsis {
             synopsis.text = anime.synopsis
         }
-        
+
         animeInfo.fillInfo(anime: anime)
+        setWatchingStatusButtonText()
+        setProgressButtonText()
+        setScoreButtonText()
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,43 +98,56 @@ class AnimeViewController: UIViewController {
                 picker, indexes, values in
                 
                 let watchingValues = values as! [String]
-                self.watchingStatus.titleLabel?.text = watchingValues[0]
+                //TODO: Actually launch request to change in MyAnimeList
+                self.anime.userStatus = AnimeStatus(rawValue: watchingValues[0])
+                self.setWatchingStatusButtonText()
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
-        
     }
     
     @IBAction func progressClicked(_ sender: UIButton) {
         ActionSheetMultipleStringPicker.show(withTitle: "Progress", rows: [
             intArray(min: 0, max: anime!.episodeCount!)
-            ], initialSelection: [0], doneBlock: {
+            ], initialSelection: [anime.episodesWatched!], doneBlock: {
                 picker, indexes, values in
                 
-                print("values = \(values!)")
                 let progressValues = values as! [Int]
-                self.progress.titleLabel?.text = "\(progressValues[0])/\(self.anime!.episodeCount!)"
+                //TODO: Actually launch request to change in MyAnimeList
+                self.anime.episodesWatched = progressValues[0]
+                self.setProgressButtonText()
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
-        
     }
 
     @IBAction func scoreClicked(_ sender: UIButton) {
         ActionSheetMultipleStringPicker.show(withTitle: "Rating", rows: [
             intArray(min: 1, max: 10)
-            ], initialSelection: [0], doneBlock: {
+            ], initialSelection: [anime.userScore!], doneBlock: {
                 picker, indexes, values in
                 
-                print("values = \(values!)")
                 let scoreValues = values as! [Int]
-                self.scorePicker.titleLabel?.text = "\(scoreValues[0])/10"
+                //TODO: Actually launch request to change in MyAnimeList
+                self.anime.userScore = scoreValues[0]
+                self.setScoreButtonText()
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
-        
     }
     
     //MARK: - Private Helper Methods
     
     private func intArray(min: Int, max: Int) -> [Int] {
         return [Int](min...max)
+    }
+    
+    private func setWatchingStatusButtonText() {
+        watchingStatus.titleLabel?.text = anime.userStatus!.rawValue
+    }
+    
+    private func setProgressButtonText() {
+        progress.titleLabel?.text = "\(anime.episodesWatched!)/\(self.anime!.episodeCount!)"
+    }
+    
+    private func setScoreButtonText() {
+        scorePicker.titleLabel?.text = "\(anime.userScore!)/10"
     }
 }

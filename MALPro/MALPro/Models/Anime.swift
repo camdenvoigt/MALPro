@@ -189,6 +189,8 @@ public class Anime {
         self.characters = anime.characters
         self.episodes = anime.episodes
         self.staff = anime.staff
+        self.genres = anime.genres
+        self.studios = anime.studios
     }
     
     private func animeTypeFromString(_ type: String?) ->  AnimeType? {
