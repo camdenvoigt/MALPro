@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE57E52206686C70022DAE2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEC2065DD0400EA2A47 /* Character.swift */; };
+		0CE57E53206686C70022DAE2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* Person.swift */; };
+		0CE57E54206686F30022DAE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EB92065DADE00EA2A47 /* AppDelegate.swift */; };
+		0CE57E58206687440022DAE2 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E55206687430022DAE2 /* ModelUtils.swift */; };
+		0CE57E59206687440022DAE2 /* VoiceActingRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E56206687430022DAE2 /* VoiceActingRole.swift */; };
+		0CE57E5C206687920022DAE2 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5B206687920022DAE2 /* Episode.swift */; };
+		0CE57E5E206687AD0022DAE2 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5D206687AC0022DAE2 /* NetworkingError.swift */; };
+		0CE57E6020668A010022DAE2 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */; };
 		0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332382065E21700F6EACA /* MALTabBarController.swift */; };
 		0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332452065E52F00F6EACA /* DrawerViewController.swift */; };
 		0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */; };
@@ -14,15 +22,12 @@
 		0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */; };
 		0CF332502065F67300F6EACA /* AnimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324F2065F67300F6EACA /* AnimeList.swift */; };
 		0CF3325D20660FDE00F6EACA /* AnimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3325C20660FDE00F6EACA /* AnimeView.xib */; };
-		589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EB92065DADE00EA2A47 /* AppDelegate.swift */; };
 		589D0EBF2065DADE00EA2A47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EBD2065DADE00EA2A47 /* Main.storyboard */; };
 		589D0EC12065DADE00EA2A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EC02065DADE00EA2A47 /* Assets.xcassets */; };
 		589D0EC42065DADE00EA2A47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EC22065DADE00EA2A47 /* LaunchScreen.storyboard */; };
 		589D0ECF2065DADE00EA2A47 /* MALProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0ECE2065DADE00EA2A47 /* MALProTests.swift */; };
 		589D0EDA2065DADF00EA2A47 /* MALProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0ED92065DADF00EA2A47 /* MALProUITests.swift */; };
 		589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EE82065DC8E00EA2A47 /* Anime.swift */; };
-		589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* Person.swift */; };
-		589D0EED2065DD0400EA2A47 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEC2065DD0400EA2A47 /* Character.swift */; };
 		589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */; };
 		88D980800B9EE3BF7E9BBE30 /* Pods_MALPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C11CA1EA259A8D203C58757 /* Pods_MALPro.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CE57E55206687430022DAE2 /* ModelUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
+		0CE57E56206687430022DAE2 /* VoiceActingRole.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceActingRole.swift; sourceTree = "<group>"; };
+		0CE57E5B206687920022DAE2 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		0CE57E5D206687AC0022DAE2 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
 		0CF332382065E21700F6EACA /* MALTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALTabBarController.swift; sourceTree = "<group>"; };
 		0CF332452065E52F00F6EACA /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +125,7 @@
 				0CF332382065E21700F6EACA /* MALTabBarController.swift */,
 				0CF332452065E52F00F6EACA /* DrawerViewController.swift */,
 				0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */,
+				0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -180,8 +191,11 @@
 			children = (
 				589D0EE82065DC8E00EA2A47 /* Anime.swift */,
 				589D0EEC2065DD0400EA2A47 /* Character.swift */,
+				0CE57E5B206687920022DAE2 /* Episode.swift */,
 				589D0EEA2065DCE500EA2A47 /* Person.swift */,
 				0CF3324F2065F67300F6EACA /* AnimeList.swift */,
+				0CE57E55206687430022DAE2 /* ModelUtils.swift */,
+				0CE57E56206687430022DAE2 /* VoiceActingRole.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */,
+				0CE57E5D206687AC0022DAE2 /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -406,18 +421,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE57E58206687440022DAE2 /* ModelUtils.swift in Sources */,
+				0CE57E6020668A010022DAE2 /* AnimeViewController.swift in Sources */,
+				0CE57E52206686C70022DAE2 /* Character.swift in Sources */,
+				0CE57E53206686C70022DAE2 /* Person.swift in Sources */,
 				589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */,
-				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
-				589D0EED2065DD0400EA2A47 /* Character.swift in Sources */,
-				589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */,
 				0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */,
 				0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */,
-				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
 				0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */,
-				589D0EED2065DD0400EA2A47 /* Character.swift in Sources */,
+				0CE57E5C206687920022DAE2 /* Episode.swift in Sources */,
 				0CF332502065F67300F6EACA /* AnimeList.swift in Sources */,
-				589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */,
 				0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */,
+				0CE57E5E206687AD0022DAE2 /* NetworkingError.swift in Sources */,
+				0CE57E54206686F30022DAE2 /* AppDelegate.swift in Sources */,
+				0CE57E59206687440022DAE2 /* VoiceActingRole.swift in Sources */,
 				589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
