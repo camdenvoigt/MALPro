@@ -33,6 +33,11 @@ class AnimeListTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "AnimeTableViewCell", bundle: nil), forCellReuseIdentifier: "AnimeTableViewCell")
     }
     
+    func setAnimeList(animeList: AnimeList) {
+        self.animeList = animeList
+        self.tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.title = listType?.rawValue
     }

@@ -45,18 +45,28 @@ class AnimeViewController: UIViewController {
         }
         
         self.navigationItem.title = anime.title!
-        synopsis.text = anime.synopsis
-        animeInfo.fillInfo(anime: anime)
+        updateView()
         
         if  nil == anime.image {
             networkingController.getImage(url: anime.imageUrl!) { image in
                 anime.image = image
-                self.view.setNeedsDisplay()
+                self.updateView()
+            }
+        }
+        
+        if !anime.allData {
+            networkingController.getAnime(id: anime.id) { anime in
+                guard let anime = anime else {
+                    return
+                }
+                self.anime.updateAnimeFromAnime(anime: anime)
+                self.updateView()
             }
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    
+    func updateView() {
         guard let anime = anime else {
             return
         }
@@ -64,6 +74,12 @@ class AnimeViewController: UIViewController {
         if nil != anime.image {
             coverImage.image = anime.image
         }
+        
+        if nil != anime.synopsis {
+            synopsis.text = anime.synopsis
+        }
+        
+        animeInfo.fillInfo(anime: anime)
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,12 +22,21 @@ class MALTabBarController: UITabBarController {
         setUpViewControllers()
         
         let neworkController = MALNetworkController()
-        neworkController.getAnime(id: 1) { anime in
-            guard let anime = anime else {
+        neworkController.userAnimeList(username: "ProofsGuy") { animeList in
+            guard let animeList = animeList else {
                 return
             }
-            self.animeList.addToList(listType: .watching, value: anime)
-            (self.viewControllers![0] as! AnimeListTableViewController).tableView.reloadData()
+            self.animeList = animeList
+            self.refeshViews()
+        }
+    }
+    
+    func refeshViews() {
+        for viewController in self.viewControllers! {
+            guard let animeListTableViewController = (viewController as? AnimeListTableViewController) else {
+                continue
+            }
+            animeListTableViewController.setAnimeList(animeList: animeList)
         }
     }
 

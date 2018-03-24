@@ -38,6 +38,7 @@ public class Anime {
     
     // Main Values
     var id: Int
+    var allData: Bool
     var canonicalLink: URL?
     var title: String?
     var titleJapanese: String?
@@ -77,6 +78,7 @@ public class Anime {
     
     init(id: Int) {
         self.id = id
+        allData = false
     }
     
     init(data: Any) throws {
@@ -85,6 +87,7 @@ public class Anime {
         }
         
         self.id = json["mal_id"] as! Int
+        self.allData = true
         self.canonicalLink = ModelUtils.urlFromString(json["link_canonical"] as? String)
         self.title = json["title"] as? String
         self.titleJapanese = json["title_japanese"] as? String
@@ -106,7 +109,7 @@ public class Anime {
         self.popularity = json["popularity"] as? Int
         self.members = json["members"] as? Int
         self.favorites = json["favorites"] as? Int
-        self.synopsis = json["synopsis"] as? String
+        self.synopsis = String(utf8String: ((json["synopsis"] as? String)?.cString(using: String.Encoding.utf8))!)
         self.background = json["background"] as? String
         self.premiered = json["premiered"] as? String
         self.broadcast = json["boradcast"] as? String
@@ -133,6 +136,7 @@ public class Anime {
     // For constructing partial anime from Person and Search Results
     init(dict: [String : Any?], search: Bool) {
         self.id = (search) ? dict["id"] as! Int : dict["mal_id"] as! Int
+        self.allData = false
         self.title = dict["name"] as? String
         self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
         self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
@@ -141,6 +145,36 @@ public class Anime {
         self.score = dict["score"] as? Double
         self.episodeCount = dict["episodes"] as? Int
         self.members = dict["members"] as? Int
+    }
+    
+    func updateAnimeFromAnime(anime: Anime) {
+        self.allData = true
+        self.canonicalLink = anime.canonicalLink
+        self.title = anime.title
+        self.titleJapanese = anime.titleJapanese
+        self.imageUrl = anime.imageUrl
+        self.type = anime.type
+        self.source = anime.source
+        self.episodeCount = anime.episodeCount
+        self.status = anime.status
+        self.airing = anime.airing
+        self.airDate = anime.airDate
+        self.startDate = anime.startDate
+        self.endDate = anime.endDate
+        self.duration = anime.duration
+        self.rating = anime.rating
+        self.score = anime.score
+        self.rank = anime.rank
+        self.popularity = anime.popularity
+        self.members = anime.members
+        self.favorites = anime.favorites
+        self.synopsis = anime.synopsis
+        self.background = anime.background
+        self.premiered = anime.premiered
+        self.broadcast = anime.broadcast
+        self.characters = anime.characters
+        self.episodes = anime.episodes
+        self.staff = anime.staff
     }
     
     private func animeTypeFromString(_ type: String?) ->  AnimeType? {

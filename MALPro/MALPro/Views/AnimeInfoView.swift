@@ -21,17 +21,21 @@ class AnimeInfoView: NibView {
     
     
     func fillInfo(anime: Anime) {
-        typeLabel.text = typeString(type: anime.type!)
-        episodeCountLabel.text = "\(anime.episodeCount!)"
-        sourceLabel.text = sourceString(source: anime.source!)
-        scoreLabel.text = "\(anime.score!)"
-        rankLabel.text = "#\(anime.rank!)"
-        popularityLabel.text = "#\(anime.popularity!)"
+        typeLabel.text = typeString(type: anime.type)
+        episodeCountLabel.text = anime.episodeCount != nil ? "\(anime.episodeCount!)" : ""
+        sourceLabel.text = sourceString(source: anime.source)
+        scoreLabel.text = anime.score != nil ? "\(anime.score!)" : ""
+        rankLabel.text = anime.rank != nil ? "#\(anime.rank!)" : ""
+        popularityLabel.text = anime.popularity != nil ? "#\(anime.popularity!)" : ""
     }
     
     //MARK: - Private Helper Functions
     
-    private func typeString(type: AnimeType) -> String {
+    private func typeString(type: AnimeType?) -> String {
+        guard let type = type else {
+            return ""
+        }
+        
         switch type {
         case .tv:
             return "TV"
@@ -48,7 +52,11 @@ class AnimeInfoView: NibView {
         }
     }
     
-    private func sourceString(source: AnimeSourceType) -> String {
+    private func sourceString(source: AnimeSourceType?) -> String {
+        guard let source = source else {
+            return ""
+        }
+        
         switch source {
         case .original:
             return "Original"
