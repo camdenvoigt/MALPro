@@ -27,12 +27,16 @@ public class MALNetworkController {
     
     // Get all characters from a given anime
 //    @discardableResult
-//    func getAnime(id: Int, completionHandler: @escaping(DataResponse<Anime>) -> Void) -> Alamofire.DataRequest {
-//        return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(id)").responseJSON { response in
+//    func getCharacters(id: Int, completionHandler: @escaping(DataResponse<AnimeCharacter>) -> Void) -> Alamofire.DataRequest {
+//        return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(id)/characters").responseJSON { response in
 //            let animeResponse = response.flatMap { json in
 //                try Anime(data: json)
 //            }
-//            
+//
+//            if let anime = animeResponse.value {
+//
+//            }
+//
 //            completionHandler(animeResponse)
 //        }
 //    }

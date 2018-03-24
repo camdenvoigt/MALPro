@@ -49,6 +49,7 @@ public class Anime {
     var background: String?
     var premiered: String?
     var broadcast: String?
+    var characters: [AnimeCharacter]?
     
     init(id: Int) {
         self.id = id
@@ -85,6 +86,11 @@ public class Anime {
         self.background = json["background"] as? String
         self.premiered = json["premiered"] as? String
         self.broadcast = json["boradcast"] as? String
+        if let characters = json["character"] as? [[String: Any?]] {
+            for character in characters {
+                self.characters?.append(AnimeCharacter(dict: character))
+            }
+        }
     }
     
     // For constructing partial anime from Person

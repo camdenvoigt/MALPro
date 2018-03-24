@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Person {
+public class AnimePerson {
     var id: Int
     var canonicalLink: URL?
     var name: String?
@@ -46,7 +46,7 @@ public class Person {
                 if let anime = role["anime"] as? [String: Any?],
                     let character = role["character"] as? [String: Any?]
                 {
-                    roles?.append(VoiceActingRole(Anime(dict: anime), Character(dict: character)))
+                    roles?.append(VoiceActingRole(Anime(dict: anime), AnimeCharacter(dict: character)))
                 }
             }
         }

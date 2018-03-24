@@ -13,7 +13,7 @@ enum CharacterType {
     case supporting
 }
 
-public class Character {
+public class AnimeCharacter {
     var id: Int
     var canonicalLink: URL?
     var name: String?
@@ -21,7 +21,7 @@ public class Character {
     var about: String?
     var favorites: Int?
     var imageUrl: URL?
-    var voiceActors: [Person]?
+    var voiceActors: [AnimePerson]?
     
     init(id: Int) {
         self.id = id
@@ -42,7 +42,7 @@ public class Character {
         self.imageUrl = ModelUtils.urlFromString(json["image_url"] as? String)
         if let voiceActors = json["voice_actor"] as? [Dictionary<String, Any>] {
             for voiceActor in voiceActors {
-                self.voiceActors?.append(Person(dict: voiceActor))
+                self.voiceActors?.append(AnimePerson(dict: voiceActor))
             }
         }
     }
