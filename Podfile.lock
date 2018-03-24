@@ -1,18 +1,25 @@
 PODS:
   - ActionSheetPicker-3.0 (2.3.0)
   - Alamofire (4.7.0)
+  - Fuzi (2.0.1)
   - KYDrawerController (2.0.4)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.3.0)
   - Alamofire (~> 4.7)
+  - Fuzi (~> 2.0)
   - KYDrawerController
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Fuzi: f64983dea705491d3aedd32351247a09523e7efd
   KYDrawerController: cf5839877c442132123e9d482f458821026defdf
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 9b115241e8ba5c43f2949e57d8a24e38d196fa2f
+=======
+PODFILE CHECKSUM: 4b6c24788c1285e6be3a1933f97b80941bb1f294
+>>>>>>> eae753b063d1b70641fcccfb971c4ddcbabc1570
 
 COCOAPODS: 1.4.0
