@@ -28,5 +28,9 @@ class AnimeTableViewCell: UITableViewCell {
     public func setUpCellForAnime(anime: Anime) {
         title.text = anime.title
         episodeProgress.text = "0/\(anime.episodeCount ?? 0)"
+        guard let image = anime.image else {
+            return
+        }
+        coverImage.image = image
     }
 }

@@ -15,7 +15,7 @@ public class MALNetworkController {
     
     // Get UIImage for image url
     @discardableResult
-    func getImage(url: String,completionHandler: @escaping(UIImage?) -> Void) -> Alamofire.DataRequest {
+    func getImage(url: URL,completionHandler: @escaping(UIImage?) -> Void) -> Alamofire.DataRequest {
         return Alamofire.request(url).responseData { response in
             if let data = response.value {
                 completionHandler(UIImage(data: data))

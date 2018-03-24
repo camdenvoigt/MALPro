@@ -19,10 +19,14 @@ class AnimeViewController: UIViewController {
         AnimeListType.completed.rawValue
     ]
     
+    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var animeInfo: AnimeInfoView!
     @IBOutlet weak var watchingStatus: UIButton!
     @IBOutlet weak var progress: UIButton!
     @IBOutlet weak var scorePicker: UIButton!
+    @IBOutlet weak var synopsis: UITextView!
     
+    var networkingController = MALNetworkController()
     var anime: Anime!
     
     init(anime: Anime) {
@@ -36,8 +40,30 @@ class AnimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        guard let anime = anime else {
+            return
+        }
+        
+        self.navigationItem.title = anime.title!
+        synopsis.text = anime.synopsis
+        animeInfo.fillInfo(anime: anime)
+        
+        if  nil == anime.image {
+            networkingController.getImage(url: anime.imageUrl!) { image in
+                anime.image = image
+                self.view.setNeedsDisplay()
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let anime = anime else {
+            return
+        }
+        
+        if nil != anime.image {
+            coverImage.image = anime.image
+        }
     }
 
     override func didReceiveMemoryWarning() {
