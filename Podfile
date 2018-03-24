@@ -5,4 +5,5 @@ use_frameworks!
 
 target 'MALPro' do
     pod 'Alamofire', '~> 4.7'
+    pod 'KYDrawerController'
 end
