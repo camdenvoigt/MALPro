@@ -16,6 +16,7 @@
 		0CF3324C2065E95200F6EACA /* AnimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */; };
 		0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */; };
 		0CF332502065F67300F6EACA /* AnimeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF3324F2065F67300F6EACA /* AnimeList.swift */; };
+		0CF3325D20660FDE00F6EACA /* AnimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3325C20660FDE00F6EACA /* AnimeView.xib */; };
 		589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EB92065DADE00EA2A47 /* AppDelegate.swift */; };
 		589D0EBF2065DADE00EA2A47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EBD2065DADE00EA2A47 /* Main.storyboard */; };
 		589D0EC12065DADE00EA2A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EC02065DADE00EA2A47 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeTableViewCell.xib; sourceTree = "<group>"; };
 		0CF3324D2065EE2100F6EACA /* AnimeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListTableViewController.swift; sourceTree = "<group>"; };
 		0CF3324F2065F67300F6EACA /* AnimeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeList.swift; sourceTree = "<group>"; };
+		0CF3325C20660FDE00F6EACA /* AnimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeView.xib; sourceTree = "<group>"; };
 		589D0EB62065DADE00EA2A47 /* MALPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MALPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		589D0EB92065DADE00EA2A47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		589D0EBE2065DADE00EA2A47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */,
 				0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */,
+				0CF3325C20660FDE00F6EACA /* AnimeView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			files = (
 				0CF3324C2065E95200F6EACA /* AnimeTableViewCell.xib in Resources */,
 				589D0EC42065DADE00EA2A47 /* LaunchScreen.storyboard in Resources */,
+				0CF3325D20660FDE00F6EACA /* AnimeView.xib in Resources */,
 				589D0EC12065DADE00EA2A47 /* Assets.xcassets in Resources */,
 				589D0EBF2065DADE00EA2A47 /* Main.storyboard in Resources */,
 			);
