@@ -26,7 +26,7 @@ class MALTabBarController: UITabBarController {
             guard let anime = anime else {
                 return
             }
-            self.animeList.addToList(listType: AnimeListType.watching, value: anime)
+            self.animeList.addToList(listType: .watching, value: anime)
             (self.viewControllers![0] as! AnimeListTableViewController).tableView.reloadData()
         }
     }
@@ -38,16 +38,16 @@ class MALTabBarController: UITabBarController {
     }
     
     private func setUpViewControllers() {
-        let watchingController = createAnimeListTableViewController(listType: AnimeListType.watching, tag: 0)
-        let completed = createAnimeListTableViewController(listType: AnimeListType.completed, tag: 1)
-        let onHold = createAnimeListTableViewController(listType: AnimeListType.onHold, tag: 2)
-        let dropped = createAnimeListTableViewController(listType: AnimeListType.dropped, tag: 3)
-        let planToWatch = createAnimeListTableViewController(listType: AnimeListType.planToWatch, tag: 4)
+        let watchingController = createAnimeListTableViewController(listType:.watching, tag: 0)
+        let completed = createAnimeListTableViewController(listType: .completed, tag: 1)
+        let onHold = createAnimeListTableViewController(listType: .onHold, tag: 2)
+        let dropped = createAnimeListTableViewController(listType: .dropped, tag: 3)
+        let planToWatch = createAnimeListTableViewController(listType: .planToWatch, tag: 4)
         
         viewControllers = [watchingController, completed, onHold, dropped, planToWatch]
     }
     
-    private func createAnimeListTableViewController(listType: AnimeListType, tag: NSInteger) -> AnimeListTableViewController {
+    private func createAnimeListTableViewController(listType: AnimeStatus, tag: NSInteger) -> AnimeListTableViewController {
         let viewController = AnimeListTableViewController(animeList: animeList, listType: listType)
         viewController.tabBarItem = UITabBarItem(title: listType.rawValue, image: getTabBarImage(listType: listType), tag: tag)
         return viewController
@@ -58,18 +58,20 @@ class MALTabBarController: UITabBarController {
         return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapOpenButton))
     }
     
-    private func getTabBarImage(listType: AnimeListType) -> UIImage {
+    private func getTabBarImage(listType: AnimeStatus) -> UIImage {
         switch listType {
-        case .watching:
-            return UIImage(named: "WatchingTabBarIcon")!
-        case .onHold:
-            return UIImage(named: "OnHoldTabBarIcon")!
-        case .dropped:
-            return UIImage(named: "DroppedTabBarIcon")!
-        case .planToWatch:
-            return UIImage(named: "PlanToWatchTabBarIcon")!
-        case .completed:
-            return UIImage(named: "CompletedTabBarIcon")!
+            case .watching:
+                return UIImage(named: "WatchingTabBarIcon")!
+            case .onHold:
+                return UIImage(named: "OnHoldTabBarIcon")!
+            case .dropped:
+                return UIImage(named: "DroppedTabBarIcon")!
+            case .planToWatch:
+                return UIImage(named: "PlanToWatchTabBarIcon")!
+            case .completed:
+                return UIImage(named: "CompletedTabBarIcon")!
+            default:
+                return UIImage()
         }
     }
 }

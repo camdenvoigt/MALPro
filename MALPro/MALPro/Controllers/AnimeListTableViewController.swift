@@ -14,9 +14,9 @@ class AnimeListTableViewController: UITableViewController {
     
     var networkingController = MALNetworkController()
     var animeList: AnimeList?
-    var listType: AnimeListType?
+    var listType: AnimeStatus?
     
-    init(animeList: AnimeList, listType: AnimeListType) {
+    init(animeList: AnimeList, listType: AnimeStatus) {
         self.animeList = animeList
         self.listType = listType
         super.init(style: .plain)
@@ -78,16 +78,18 @@ class AnimeListTableViewController: UITableViewController {
 
     private func getAnimeArray() -> [Anime] {
         switch listType! {
-        case .watching:
-            return animeList!.watching
-        case .onHold:
-            return animeList!.onHold
-        case .dropped:
-            return animeList!.dropped
-        case .planToWatch:
-            return animeList!.planToWatch
-        case .completed:
-            return animeList!.completed
+            case .watching:
+                return animeList!.watching
+            case .onHold:
+                return animeList!.onHold
+            case .dropped:
+                return animeList!.dropped
+            case .planToWatch:
+                return animeList!.planToWatch
+            case .completed:
+                return animeList!.completed
+            default:
+                return []
         }
     }
 }
