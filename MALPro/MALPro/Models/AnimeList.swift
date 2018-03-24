@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum AnimeListType: String {
+    case watching = "Watching"
+    case onHold = "On Hold"
+    case dropped = "Dropped"
+    case planToWatch = "Plan to Watch"
+    case completed = "Completed"
+}
+
 class AnimeList {
     var watching: [Anime]
     var onHold: [Anime]

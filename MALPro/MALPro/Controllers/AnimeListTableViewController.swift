@@ -8,14 +8,6 @@
 
 import UIKit
 
-enum AnimeListType: String {
-    case watching = "Watching"
-    case onHold = "On Hold"
-    case dropped = "Dropped"
-    case planToWatch = "Plan to Watch"
-    case completed = "Completed"
-}
-
 class AnimeListTableViewController: UITableViewController {
     
     let ROW_HEIGHT = 60.0
@@ -67,6 +59,13 @@ class AnimeListTableViewController: UITableViewController {
         cell.setUpCellForAnime(anime: anime)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let anime = getAnimeArray()[indexPath.row]
+        let viewController = AnimeViewController(anime: anime)
+
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     // MARK: - Private Helper Methods
