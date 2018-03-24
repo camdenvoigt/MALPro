@@ -67,6 +67,8 @@ public class Anime {
     var characters: [AnimeCharacter]?
     var episodes: [AnimeEpisode]?
     var staff: [AnimePerson]?
+    var studios: [String]?
+    var genres: [String]?
     
     // User Values
     var episodesWatched: Int?
@@ -110,22 +112,34 @@ public class Anime {
         self.background = json["background"] as? String
         self.premiered = json["premiered"] as? String
         self.broadcast = json["boradcast"] as? String
+        if let studioList = json["studio"] as? [[String: Any]] {
+            self.studios = [String]()
+            for studio in studioList {
+                self.studios!.append((studio["name"] as? String)!)
+            }
+        }
+        if let genreList = json["genre"] as? [[String: Any]] {
+            self.genres = [String]()
+            for genre in genreList {
+                self.genres!.append((genre["name"] as? String)!)
+            }
+        }
         if let characters = json["character"] as? [[String: Any?]] {
             self.characters = [AnimeCharacter]()
             for character in characters {
-                self.characters?.append(AnimeCharacter(dict: character))
+                self.characters!.append(AnimeCharacter(dict: character))
             }
         }
         if let episodes = json["episode"] as? [[String: Any?]] {
             self.episodes = [AnimeEpisode]()
             for episode in episodes {
-                self.episodes?.append(AnimeEpisode(dict: episode))
+                self.episodes!.append(AnimeEpisode(dict: episode))
             }
         }
         if let people = json["staff"] as? [[String: Any?]] {
             self.staff = [AnimePerson]()
             for person in people {
-                self.staff?.append(AnimePerson(dict: person, search: false))
+                self.staff!.append(AnimePerson(dict: person, search: false))
             }
         }
     }
