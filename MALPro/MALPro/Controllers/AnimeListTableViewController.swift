@@ -8,18 +8,11 @@
 
 import UIKit
 
-enum AnimeListType {
-    case watching
-    case onHold
-    case dropped
-    case planToWatch
-    case completed
-}
-
 class AnimeListTableViewController: UITableViewController {
     
-    let ROW_HEIGHT = 60.0
+    let ROW_HEIGHT = 120.0 as CGFloat
     
+    var networkingController = MALNetworkController()
     var animeList: AnimeList?
     var listType: AnimeListType?
     
@@ -36,12 +29,12 @@ class AnimeListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = 60.0
+        self.tableView.rowHeight = ROW_HEIGHT
         self.tableView.register(UINib(nibName: "AnimeTableViewCell", bundle: nil), forCellReuseIdentifier: "AnimeTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = getListTitle()
+        self.tabBarController?.navigationItem.title = listType?.rawValue
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,32 +52,29 @@ class AnimeListTableViewController: UITableViewController {
         return getAnimeArray().count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeTableViewCell", for: indexPath) as! AnimeTableViewCell
         let anime = getAnimeArray()[indexPath.row]
+        if nil == anime.image {
+            networkingController.getImage(url: anime.imageUrl!) { image in
+                anime.image = image
+                self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            }
+        }
 
         cell.setUpCellForAnime(anime: anime)
 
         return cell
     }
     
-    // MARK: - Private Helper Methods
-    
-    private func getListTitle() -> String {
-        switch listType! {
-        case .watching:
-            return "Watching";
-        case .onHold:
-            return "On Hold";
-        case .dropped:
-            return "Dropped"
-        case .planToWatch:
-            return "Plan to Watch"
-        case .completed:
-            return "Completed"
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let anime = getAnimeArray()[indexPath.row]
+        let viewController = AnimeViewController(anime: anime)
+
+        navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    // MARK: - Private Helper Methods
 
     private func getAnimeArray() -> [Anime] {
         switch listType! {

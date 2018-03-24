@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Episode {
+public class AnimeEpisode {
     var id: Int
     var title: String?
     var titleJapanese: String?
