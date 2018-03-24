@@ -10,9 +10,7 @@
 #endif
 #endif
 
-#import "Ono.h"
-#import "ONOXMLDocument.h"
 
-FOUNDATION_EXPORT double OnoVersionNumber;
-FOUNDATION_EXPORT const unsigned char OnoVersionString[];
+FOUNDATION_EXPORT double FuziVersionNumber;
+FOUNDATION_EXPORT const unsigned char FuziVersionString[];
 

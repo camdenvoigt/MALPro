@@ -1,6 +1,5 @@
-// Ono.h
-//
-// Copyright (c) 2014 – 2018 Mattt (https://mat.tt)
+// Error.swift
+// Copyright (c) 2015 Ce Zheng
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,12 +19,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+import Foundation
+import libxml2
 
-//! Project version number for Ono iOS.
-FOUNDATION_EXPORT double Ono_VersionNumber;
-
-//! Project version string for Ono iOS.
-FOUNDATION_EXPORT const unsigned char Ono_VersionString[];
-
-#import <Ono/ONOXMLDocument.h>
+/**
+*  XMLError enumeration.
+*/
+public enum XMLError: Error {
+  /// No error
+  case noError
+  /// Contains a libxml2 error with error code and message
+  case libXMLError(code: Int, message: String)
+  /// Failed to convert String to bytes using given string encoding
+  case invalidData
+  /// XML Parser failed to parse the document
+  case parserFailure
+  
+  internal static func lastError(defaultError: XMLError = .noError) -> XMLError {
+    guard let errorPtr = xmlGetLastError() else {
+      return defaultError
+    }
+    let message = (^-^errorPtr.pointee.message)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    let code = Int(errorPtr.pointee.code)
+    xmlResetError(errorPtr)
+    return .libXMLError(code: code, message: message ?? "")
+  }
+}
