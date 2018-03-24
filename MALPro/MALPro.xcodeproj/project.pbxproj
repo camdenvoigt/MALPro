@@ -24,6 +24,7 @@
 		589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* Person.swift */; };
 		589D0EED2065DD0400EA2A47 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEC2065DD0400EA2A47 /* Character.swift */; };
 		589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */; };
+		88D980800B9EE3BF7E9BBE30 /* Pods_MALPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C11CA1EA259A8D203C58757 /* Pods_MALPro.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				332A1CEE764BBF64232C8B9C /* Pods_MALPro.framework in Frameworks */,
+				88D980800B9EE3BF7E9BBE30 /* Pods_MALPro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,10 +180,7 @@
 			children = (
 				589D0EE82065DC8E00EA2A47 /* Anime.swift */,
 				589D0EEC2065DD0400EA2A47 /* Character.swift */,
-				5855D9C520660BA10054E244 /* Episode.swift */,
 				589D0EEA2065DCE500EA2A47 /* Person.swift */,
-				5855D9C720660FE80054E244 /* VoiceActingRole.swift */,
-				5855D9C3206603410054E244 /* ModelUtils.swift */,
 				0CF3324F2065F67300F6EACA /* AnimeList.swift */,
 			);
 			path = Models;
@@ -192,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */,
-				5855D9C12065EC9A0054E244 /* NetworkingError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -357,10 +354,12 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-MALPro/Pods-MALPro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,13 +407,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */,
-				5855D9C820660FE80054E244 /* VoiceActingRole.swift in Sources */,
 				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
-				5855D9C22065EC9A0054E244 /* NetworkingError.swift in Sources */,
 				589D0EED2065DD0400EA2A47 /* Character.swift in Sources */,
-				5855D9C4206603410054E244 /* ModelUtils.swift in Sources */,
 				589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */,
-				5855D9C620660BA10054E244 /* Episode.swift in Sources */,
 				0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */,
 				0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */,
 				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
