@@ -42,20 +42,15 @@ public class XMLConvert {
             
             switch basicInfo["user_status"] as! Int {
                 case 1:
-                    list.watching.append(Anime(list: basicInfo))
-                    list.watchingCount += 1
+                    list.addToList(listType: .watching, value: Anime(list: basicInfo))
                 case 2:
-                    list.completed.append(Anime(list: basicInfo))
-                    list.completedCount += 1
+                    list.addToList(listType: .completed, value: Anime(list: basicInfo))
                 case 3:
-                    list.onHold.append(Anime(list: basicInfo))
-                    list.onHoldCount += 1
+                    list.addToList(listType: .onHold, value: Anime(list: basicInfo))
                 case 4:
-                    list.dropped.append(Anime(list: basicInfo))
-                    list.droppedCount += 1
+                    list.addToList(listType: .dropped, value: Anime(list: basicInfo))
                 case 6:
-                    list.planToWatch.append(Anime(list: basicInfo))
-                    list.planToWatchCount += 1
+                    list.addToList(listType: .planToWatch, value: Anime(list: basicInfo))
                 default:
                     break
             }

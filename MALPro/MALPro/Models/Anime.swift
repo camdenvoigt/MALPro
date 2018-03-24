@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum AnimeType {
     case tv
@@ -24,7 +25,7 @@ enum AnimeSourceType {
     case lightNovel
 }
 
-enum UserStatus: String {
+enum AnimeStatus: String {
     case notAdded = "Not Added"
     case watching = "Watching"
     case completed = "Completed"
@@ -41,6 +42,7 @@ public class Anime {
     var title: String?
     var titleJapanese: String?
     var imageUrl: URL?
+    var image: UIImage?
     var type: AnimeType?
     var source: AnimeSourceType?
     var episodeCount: Int?

@@ -33,4 +33,44 @@ class AnimeList {
         self.completed = completed
         self.completedCount = completed.count
     }
+    
+    func addToList(listType: AnimeStatus, value: Anime) {
+        switch listType {
+        case .watching:
+            watching.append(value)
+            watchingCount += 1
+        case .onHold:
+            onHold.append(value)
+            onHoldCount += 1
+        case .dropped:
+            dropped.append(value)
+            droppedCount += 1
+        case .planToWatch:
+            planToWatch.append(value)
+            planToWatchCount += 1
+        case .completed:
+            completed.append(value)
+            completedCount += 1
+        }
+    }
+    
+    func addToList(listType: AnimeStatus, values: [Anime]) {
+        switch listType {
+        case .watching:
+            watching.append(contentsOf: values)
+            watchingCount += values.count
+        case .onHold:
+            onHold.append(contentsOf: values)
+            onHoldCount += values.count
+        case .dropped:
+            dropped.append(contentsOf: values)
+            droppedCount += values.count
+        case .planToWatch:
+            planToWatch.append(contentsOf: values)
+            planToWatchCount += values.count
+        case .completed:
+            completed.append(contentsOf: values)
+            completedCount += values.count
+        }
+    }
 }
