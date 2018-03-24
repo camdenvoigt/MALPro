@@ -8,14 +8,30 @@
 
 import Foundation
 
+enum AnimeType {
+    case tv
+    case movie
+    case ova
+    case special
+    case music
+    case none
+}
+
+enum AnimeSourceType {
+    case original
+    case manga
+    case novel
+    case lightNovel
+}
+
 public class Anime {
     var id: Int
     var canonicalLink: URL?
     var title: String?
     var titleJapanese: String?
     var imageUrl: URL?
-    var type: String?
-    var source: String?
+    var type: AnimeType?
+    var source: AnimeSourceType?
     var episodeCount: Int?
     var status: String?
     var airing: Bool?
@@ -36,5 +52,86 @@ public class Anime {
     
     init(id: Int) {
         self.id = id
+    }
+    
+    init(data: Any) throws {
+        guard let json = data as? Dictionary<String, Any> else {
+            throw NetworkError.JSONCastError("Could not cast data object for Anime object")
+        }
+        
+        self.id = json["mal_id"] as! Int
+        self.canonicalLink = ModelUtils.urlFromString(json["link_canonical"] as? String)
+        self.title = json["title"] as? String
+        self.titleJapanese = json["title_japanese"] as? String
+        self.imageUrl = ModelUtils.urlFromString(json["image_url"] as? String)
+        self.type = animeTypeFromString(json["type"] as? String)
+        self.source = sourceTypeFromString(json["source"] as? String)
+        self.episodeCount = json["episodes"] as? Int
+        self.status = json["status"] as? String
+        self.airing = json["airing"] as? Bool
+        self.airDate = json["aired_string"] as? String
+        if let aired = json["aired"] as? Dictionary<String, Any> {
+            self.startDate = ModelUtils.dateFromString(aired["from"] as? String)
+            self.endDate = ModelUtils.dateFromString(aired["to"] as? String)
+        }
+        self.duration = json["duration"] as? String
+        self.rating = json["rating"] as? String
+        self.score = json["score"] as? Double
+        self.rank = json["rank"] as? Int
+        self.popularity = json["popularity"] as? Int
+        self.members = json["members"] as? Int
+        self.favorites = json["favorites"] as? Int
+        self.synopsis = json["synopsis"] as? String
+        self.background = json["background"] as? String
+        self.premiered = json["premiered"] as? String
+        self.broadcast = json["boradcast"] as? String
+    }
+    
+    // For constructing partial anime from Person
+    init(dict: [String : Any?]) {
+        self.id = dict["mal_id"] as! Int
+        self.title = dict["name"] as? String
+        self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
+        self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
+    }
+    
+    private func animeTypeFromString(_ type: String?) ->  AnimeType? {
+        guard let typeString = type else {
+            return nil
+        }
+        
+        switch typeString {
+            case "TV":
+                return AnimeType.tv
+            case "Movie":
+                return AnimeType.movie
+            case "OVA":
+                return AnimeType.ova
+            case "Special":
+                return AnimeType.special
+            case "Music":
+                return AnimeType.music
+            default:
+                return AnimeType.none
+        }
+    }
+    
+    private func sourceTypeFromString(_ type: String?) -> AnimeSourceType? {
+        guard let typeString = type else {
+            return nil
+        }
+        
+        switch typeString {
+            case "Original":
+                return AnimeSourceType.original
+            case "Manga":
+                return AnimeSourceType.manga
+            case "Novel":
+                return AnimeSourceType.novel
+            case "LightNovel":
+                return AnimeSourceType.lightNovel
+            default:
+                return AnimeSourceType.original
+        }
     }
 }

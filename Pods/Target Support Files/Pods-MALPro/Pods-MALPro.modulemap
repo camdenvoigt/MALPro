@@ -1,0 +1,6 @@
+framework module Pods_MALPro {
+  umbrella header "Pods-MALPro-umbrella.h"
+
+  export *
+  module * { export * }
+}
