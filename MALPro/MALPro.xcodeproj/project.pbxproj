@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */; };
 		0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332382065E21700F6EACA /* MALTabBarController.swift */; };
 		0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332452065E52F00F6EACA /* DrawerViewController.swift */; };
 		0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */; };
@@ -435,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */,
 				581EE1B9206686E100C8FDDB /* AppDelegate.swift in Sources */,
 				581EE1B8206686D900C8FDDB /* AnimePerson.swift in Sources */,
 				581EE1B7206686C400C8FDDB /* AnimeCharacter.swift in Sources */,
