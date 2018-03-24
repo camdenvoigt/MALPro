@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KYDrawerController
 
 class MALTabBarController: UITabBarController {
     
@@ -17,7 +18,7 @@ class MALTabBarController: UITabBarController {
         super.viewDidLoad()
         
         animeList = getAnimeList()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapOpenButton))
+        navigationItem.leftBarButtonItem = getMenuBarButtonItem()
         
         setUpViewControllers()
     }
@@ -74,6 +75,11 @@ class MALTabBarController: UITabBarController {
         let planToWatch = [anime1]
         
         return AnimeList(watching: watching, onHold: onHold, dropped: dropped, planToWatch: planToWatch, completed: completed)
+    }
+    
+    private func getMenuBarButtonItem() -> UIBarButtonItem {
+        let image = UIImage(named: "DrawerMenuIcon");
+        return UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didTapOpenButton))
     }
     
     private func getTabBarImage(listType: AnimeListType) -> UIImage {
