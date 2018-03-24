@@ -186,7 +186,61 @@ public class MALNetworkController {
                 return
             }
             
-            completionHandler(XMLConvert.convert(root: root))
+            completionHandler(XMLHelpers.convertXMLToAnimeList(root: root))
+        }
+    }
+    
+    // Add anime to user's anime list
+    @discardableResult
+    func addAnimeToList(username: String, password: String, anime: Anime, completionHandler: @escaping(Bool) -> Void) -> Alamofire.DataRequest {
+        let params = XMLHelpers.createXMLParameters(anime: anime)
+        return Alamofire.request("\(MAL_BASE_URL)/api/animelist/add/\(anime.id).xml", method: .post, parameters: params).authenticate(user: username, password: password).responseString { response in
+            guard let response = response.value else {
+                completionHandler(false)
+                return
+            }
+            
+            if response == "Created" {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+    
+    // Update an anime entry on a user's anime list
+    @discardableResult
+    func updateAnimeOnList(username: String, password: String, anime: Anime, completionHandler: @escaping(Bool) -> Void) -> Alamofire.DataRequest {
+        let params = XMLHelpers.createXMLParameters(anime: anime)
+        return Alamofire.request("\(MAL_BASE_URL)/api/animelist/update/\(anime.id).xml", method: .post, parameters: params).authenticate(user: username, password: password).responseString { response in
+            guard let response = response.value else {
+                completionHandler(false)
+                return
+            }
+            
+            if response == "Updated" {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+    
+    // Delete an anime entry on a user's anime list
+    @discardableResult
+    func deleteAnimeFromList(username: String, password: String, anime: Anime, completionHandler: @escaping(Bool) -> Void) -> Alamofire.DataRequest {
+        let params = XMLHelpers.createXMLParameters(anime: anime)
+        return Alamofire.request("\(MAL_BASE_URL)/api/animelist/add/\(anime.id).xml", method: .post, parameters: params).authenticate(user: username, password: password).responseString { response in
+            guard let response = response.value else {
+                completionHandler(false)
+                return
+            }
+            
+            if response == "Deleted" {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
         }
     }
 }
