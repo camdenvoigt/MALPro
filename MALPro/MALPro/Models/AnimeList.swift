@@ -9,17 +9,28 @@
 import Foundation
 
 class AnimeList {
+    var watchingCount: Int
+    var completedCount: Int
+    var onHoldCount: Int
+    var droppedCount: Int
+    var planToWatchCount: Int
+    var daysWatching: Double?
     var watching: [Anime]
     var onHold: [Anime]
     var dropped: [Anime]
     var planToWatch: [Anime]
     var completed: [Anime]
     
-    init(watching: [Anime], onHold: [Anime], dropped: [Anime], planToWatch: [Anime], completed: [Anime]) {
+    init(watching: [Anime] = [], onHold: [Anime] = [], dropped: [Anime] = [], planToWatch: [Anime] = [], completed: [Anime] = []) {
         self.watching = watching
+        self.watchingCount = watching.count
         self.onHold = onHold
+        self.onHoldCount = onHold.count
         self.dropped = dropped
+        self.droppedCount = dropped.count
         self.planToWatch = planToWatch
+        self.planToWatchCount = planToWatch.count
         self.completed = completed
+        self.completedCount = completed.count
     }
 }

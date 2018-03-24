@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+public class User {
+    var id: Int
+    var username: String
+    var animeList: AnimeList?
+    
+    init(id: Int, username: String) {
+        self.id = id
+        self.username = username
+    }
+}

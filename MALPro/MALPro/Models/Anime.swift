@@ -24,7 +24,18 @@ enum AnimeSourceType {
     case lightNovel
 }
 
+enum UserStatus: String {
+    case notAdded = "Not Added"
+    case watching = "Watching"
+    case completed = "Completed"
+    case onHold = "On Hold"
+    case dropped = "Dropped"
+    case planToWatch = "Plan to Watch"
+}
+
 public class Anime {
+    
+    // Main Values
     var id: Int
     var canonicalLink: URL?
     var title: String?
@@ -49,9 +60,18 @@ public class Anime {
     var background: String?
     var premiered: String?
     var broadcast: String?
+    
+    // Collections
     var characters: [AnimeCharacter]?
     var episodes: [AnimeEpisode]?
     var staff: [AnimePerson]?
+    
+    // User Values
+    var episodesWatched: Int?
+    var userStartDate: Date?
+    var userEndDate: Date?
+    var userScore: Int?
+    var userStatus: UserStatus?
     
     init(id: Int) {
         self.id = id
@@ -158,6 +178,45 @@ public class Anime {
                 return AnimeSourceType.lightNovel
             default:
                 return AnimeSourceType.original
+        }
+    }
+}
+
+// MARK - User Info
+
+extension Anime {
+    // Initalize Anime from User's list
+    convenience init(list dict: [String: Any?]) {
+        self.init(id: 0)
+        
+        self.id = dict["id"] as! Int
+        self.title = dict["title"] as? String
+        self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
+        self.episodeCount = dict["episodes"] as? Int
+        
+        self.episodesWatched = dict["episodes_watched"] as? Int
+        self.userStartDate = ModelUtils.dateFromString(dict["user_start"] as? String)
+        self.userEndDate = ModelUtils.dateFromString(dict["user_end"] as? String)
+        self.userScore = dict["user_score"] as? Int
+        self.userStatus = intToUserStatus(dict["user_status"] as! Int)
+    }
+    
+    private func intToUserStatus(_ val: Int) -> UserStatus{
+        switch val {
+            case 0:
+                return .notAdded
+            case 1:
+                return .watching
+            case 2:
+                return .completed
+            case 3:
+                return .onHold
+            case 4:
+                return .dropped
+            case 5:
+                return .planToWatch
+            default:
+                return .notAdded
         }
     }
 }
