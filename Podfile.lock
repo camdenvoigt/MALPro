@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.7.0)
   - KYDrawerController (2.0.4)
+  - Ono (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - KYDrawerController
+  - Ono (~> 2.0)
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   KYDrawerController: cf5839877c442132123e9d482f458821026defdf
+  Ono: e6d825e80ec73325e6d872ae4f2304f7378acb0e
 
-PODFILE CHECKSUM: ac43c010b1ac3ad5952eb7365cbf8527bb11635b
+PODFILE CHECKSUM: 8bb6ef9ce3caa8a69621aa3fdee45001f46a14c8
 
 COCOAPODS: 1.4.0
