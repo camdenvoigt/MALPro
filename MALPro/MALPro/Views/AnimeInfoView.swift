@@ -19,19 +19,24 @@ class AnimeInfoView: NibView {
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var studioLabel: UILabel!
     
-    
     func fillInfo(anime: Anime) {
-        typeLabel.text = typeString(type: anime.type!)
-        episodeCountLabel.text = "\(anime.episodeCount!)"
-        sourceLabel.text = sourceString(source: anime.source!)
-        scoreLabel.text = "\(anime.score!)"
-        rankLabel.text = "#\(anime.rank!)"
-        popularityLabel.text = "#\(anime.popularity!)"
+        typeLabel.text = typeString(type: anime.type)
+        episodeCountLabel.text = anime.episodeCount != nil ? "\(anime.episodeCount!)" : ""
+        sourceLabel.text = sourceString(source: anime.source)
+        scoreLabel.text = anime.score != nil ? "\(anime.score!)" : ""
+        rankLabel.text = anime.rank != nil ? "#\(anime.rank!)" : ""
+        popularityLabel.text = anime.popularity != nil ? "#\(anime.popularity!)" : ""
+        genresLabel.text = anime.genres != nil ? anime.genres!.flatMap({$0}).joined(separator: ", ") : ""
+        studioLabel.text = anime.studios != nil ? anime.studios!.flatMap({$0}).joined(separator: ", ") : ""
     }
     
     //MARK: - Private Helper Functions
     
-    private func typeString(type: AnimeType) -> String {
+    private func typeString(type: AnimeType?) -> String {
+        guard let type = type else {
+            return ""
+        }
+        
         switch type {
         case .tv:
             return "TV"
@@ -48,7 +53,11 @@ class AnimeInfoView: NibView {
         }
     }
     
-    private func sourceString(source: AnimeSourceType) -> String {
+    private func sourceString(source: AnimeSourceType?) -> String {
+        guard let source = source else {
+            return ""
+        }
+        
         switch source {
         case .original:
             return "Original"
