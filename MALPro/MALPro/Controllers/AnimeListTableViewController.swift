@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum AnimeListType {
-    case watching
-    case onHold
-    case dropped
-    case planToWatch
-    case completed
+enum AnimeListType: String {
+    case watching = "Watching"
+    case onHold = "On Hold"
+    case dropped = "Dropped"
+    case planToWatch = "Plan to Watch"
+    case completed = "Completed"
 }
 
 class AnimeListTableViewController: UITableViewController {
@@ -41,7 +41,7 @@ class AnimeListTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = getListTitle()
+        self.tabBarController?.navigationItem.title = listType?.rawValue
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,21 +70,6 @@ class AnimeListTableViewController: UITableViewController {
     }
     
     // MARK: - Private Helper Methods
-    
-    private func getListTitle() -> String {
-        switch listType! {
-        case .watching:
-            return "Watching";
-        case .onHold:
-            return "On Hold";
-        case .dropped:
-            return "Dropped"
-        case .planToWatch:
-            return "Plan to Watch"
-        case .completed:
-            return "Completed"
-        }
-    }
 
     private func getAnimeArray() -> [Anime] {
         switch listType! {

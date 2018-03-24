@@ -40,7 +40,7 @@ class MALTabBarController: UITabBarController {
     
     private func createAnimeListTableViewController(listType: AnimeListType, tag: NSInteger) -> AnimeListTableViewController {
         let viewController = AnimeListTableViewController(animeList: animeList, listType: listType)
-        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: tag)
+        viewController.tabBarItem = UITabBarItem(title: listType.rawValue, image: getTabBarImage(listType: listType), tag: tag)
         return viewController
     }
     
@@ -74,5 +74,20 @@ class MALTabBarController: UITabBarController {
         let planToWatch = [anime1]
         
         return AnimeList(watching: watching, onHold: onHold, dropped: dropped, planToWatch: planToWatch, completed: completed)
+    }
+    
+    private func getTabBarImage(listType: AnimeListType) -> UIImage {
+        switch listType {
+        case .watching:
+            return UIImage(named: "WatchingTabBarIcon")!
+        case .onHold:
+            return UIImage(named: "OnHoldTabBarIcon")!
+        case .dropped:
+            return UIImage(named: "DroppedTabBarIcon")!
+        case .planToWatch:
+            return UIImage(named: "PlanToWatchTabBarIcon")!
+        case .completed:
+            return UIImage(named: "CompletedTabBarIcon")!
+        }
     }
 }
