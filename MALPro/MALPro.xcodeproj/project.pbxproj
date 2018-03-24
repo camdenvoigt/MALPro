@@ -14,6 +14,9 @@
 		589D0EC42065DADE00EA2A47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589D0EC22065DADE00EA2A47 /* LaunchScreen.storyboard */; };
 		589D0ECF2065DADE00EA2A47 /* MALProTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0ECE2065DADE00EA2A47 /* MALProTests.swift */; };
 		589D0EDA2065DADF00EA2A47 /* MALProUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0ED92065DADF00EA2A47 /* MALProUITests.swift */; };
+		589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EE82065DC8E00EA2A47 /* Anime.swift */; };
+		589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* Person.swift */; };
+		589D0EED2065DD0400EA2A47 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEC2065DD0400EA2A47 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		589D0ED52065DADF00EA2A47 /* MALProUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MALProUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		589D0ED92065DADF00EA2A47 /* MALProUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALProUITests.swift; sourceTree = "<group>"; };
 		589D0EDB2065DADF00EA2A47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		589D0EE82065DC8E00EA2A47 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		589D0EEA2065DCE500EA2A47 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		589D0EEC2065DD0400EA2A47 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		589D0EB82065DADE00EA2A47 /* MALPro */ = {
 			isa = PBXGroup;
 			children = (
+				589D0EE72065DC6800EA2A47 /* Models */,
 				589D0EB92065DADE00EA2A47 /* AppDelegate.swift */,
 				589D0EBB2065DADE00EA2A47 /* ViewController.swift */,
 				589D0EBD2065DADE00EA2A47 /* Main.storyboard */,
@@ -123,6 +130,16 @@
 				589D0EDB2065DADF00EA2A47 /* Info.plist */,
 			);
 			path = MALProUITests;
+			sourceTree = "<group>";
+		};
+		589D0EE72065DC6800EA2A47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				589D0EE82065DC8E00EA2A47 /* Anime.swift */,
+				589D0EEA2065DCE500EA2A47 /* Person.swift */,
+				589D0EEC2065DD0400EA2A47 /* Character.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +278,9 @@
 			files = (
 				589D0EBC2065DADE00EA2A47 /* ViewController.swift in Sources */,
 				589D0EBA2065DADE00EA2A47 /* AppDelegate.swift in Sources */,
+				589D0EED2065DD0400EA2A47 /* Character.swift in Sources */,
+				589D0EEB2065DCE500EA2A47 /* Person.swift in Sources */,
+				589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
