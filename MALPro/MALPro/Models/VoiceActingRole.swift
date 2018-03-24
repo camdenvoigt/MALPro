@@ -10,9 +10,9 @@ import Foundation
 
 public class VoiceActingRole {
     var anime: Anime
-    var character: Character
+    var character: AnimeCharacter
     
-    init(_ anime: Anime, _ character: Character) {
+    init(_ anime: Anime, _ character: AnimeCharacter) {
         self.anime = anime
         self.character = character
     }
