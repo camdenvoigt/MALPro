@@ -18,6 +18,7 @@ class MALTabBarController: UITabBarController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = getMenuBarButtonItem()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
         
         setUpViewControllers()
         
