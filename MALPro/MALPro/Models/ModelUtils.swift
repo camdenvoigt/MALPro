@@ -32,4 +32,21 @@ public class ModelUtils {
         
         return URL(string: urlString)
     }
+    
+    static func animeStatusAsInt(status: AnimeStatus) -> Int {
+        switch status {
+            case .notAdded:
+                return 0
+            case .watching:
+                return 1
+            case .completed:
+                return 2
+            case .onHold:
+                return 3
+            case .dropped:
+                return 4
+            case .planToWatch:
+                return 5
+        }
+    }
 }
