@@ -73,7 +73,7 @@ public class Anime {
     var userStartDate: Date?
     var userEndDate: Date?
     var userScore: Int?
-    var userStatus: UserStatus?
+    var userStatus: AnimeStatus?
     
     init(id: Int) {
         self.id = id
@@ -203,7 +203,7 @@ extension Anime {
         self.userStatus = intToUserStatus(dict["user_status"] as! Int)
     }
     
-    private func intToUserStatus(_ val: Int) -> UserStatus{
+    private func intToUserStatus(_ val: Int) -> AnimeStatus {
         switch val {
             case 0:
                 return .notAdded

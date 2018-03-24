@@ -12,11 +12,11 @@ import ActionSheetPicker_3_0
 class AnimeViewController: UIViewController {
     
     let watchingStatusPickerData = [
-        AnimeListType.planToWatch.rawValue,
-        AnimeListType.watching.rawValue,
-        AnimeListType.onHold.rawValue,
-        AnimeListType.dropped.rawValue,
-        AnimeListType.completed.rawValue
+        AnimeStatus.planToWatch.rawValue,
+        AnimeStatus.watching.rawValue,
+        AnimeStatus.onHold.rawValue,
+        AnimeStatus.dropped.rawValue,
+        AnimeStatus.completed.rawValue
     ]
     
     @IBOutlet weak var coverImage: UIImageView!
