@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum AnimeType {
     case tv
@@ -30,6 +31,7 @@ public class Anime {
     var title: String?
     var titleJapanese: String?
     var imageUrl: URL?
+    var image: UIImage?
     var type: AnimeType?
     var source: AnimeSourceType?
     var episodeCount: Int?

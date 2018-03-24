@@ -12,15 +12,23 @@ import KYDrawerController
 
 class MALTabBarController: UITabBarController {
     
-    var animeList: AnimeList!
+    var animeList = AnimeList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        animeList = getAnimeList()
         navigationItem.leftBarButtonItem = getMenuBarButtonItem()
         
         setUpViewControllers()
+        
+        let neworkController = MALNetworkController()
+        neworkController.getAnime(id: 1) { anime in
+            guard let anime = anime else {
+                return
+            }
+            self.animeList.addToList(listType: AnimeListType.watching, value: anime)
+            (self.viewControllers![0] as! AnimeListTableViewController).tableView.reloadData()
+        }
     }
 
     @objc func didTapOpenButton(sender: UIBarButtonItem) {
@@ -43,38 +51,6 @@ class MALTabBarController: UITabBarController {
         let viewController = AnimeListTableViewController(animeList: animeList, listType: listType)
         viewController.tabBarItem = UITabBarItem(title: listType.rawValue, image: getTabBarImage(listType: listType), tag: tag)
         return viewController
-    }
-    
-    private func getAnimeList() -> AnimeList {
-        var anime1 = Anime(id: 1)
-        anime1.title = "K-ON!"
-        anime1.episodeCount = 12
-        let anime2 = Anime(id: 2)
-        anime2.title = "Toradora"
-        anime2.episodeCount = 25
-        let completed = [anime1, anime2]
-        
-        anime1 = Anime(id: 3)
-        anime1.title = "Clannad"
-        anime1.episodeCount = 25
-        let onHold = [anime1]
-        
-        anime1 = Anime(id: 4)
-        anime1.title = "Darling in the Franxx"
-        anime1.episodeCount = 24
-        let watching = [anime1]
-        
-        anime1 = Anime(id: 5)
-        anime1.title = "Citrus"
-        anime1.episodeCount = 12
-        let dropped = [anime1]
-        
-        anime1 = Anime(id: 6)
-        anime1.title = "Cowboy Bebop"
-        anime1.episodeCount = 26
-        let planToWatch = [anime1]
-        
-        return AnimeList(watching: watching, onHold: onHold, dropped: dropped, planToWatch: planToWatch, completed: completed)
     }
     
     private func getMenuBarButtonItem() -> UIBarButtonItem {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */; };
+		0CE57E632066C4AC0022DAE2 /* AnimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */; };
+		0CE57E652066C4BC0022DAE2 /* AnimeInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */; };
+		0CE57E672066CB290022DAE2 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E662066CB290022DAE2 /* NibView.swift */; };
 		0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332382065E21700F6EACA /* MALTabBarController.swift */; };
 		0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332452065E52F00F6EACA /* DrawerViewController.swift */; };
 		0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */; };
@@ -51,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
+		0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoView.swift; sourceTree = "<group>"; };
+		0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeInfoView.xib; sourceTree = "<group>"; };
+		0CE57E662066CB290022DAE2 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		0CF332382065E21700F6EACA /* MALTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALTabBarController.swift; sourceTree = "<group>"; };
 		0CF332452065E52F00F6EACA /* DrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerViewController.swift; sourceTree = "<group>"; };
 		0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +124,9 @@
 				0CF332492065E95200F6EACA /* AnimeTableViewCell.swift */,
 				0CF3324A2065E95200F6EACA /* AnimeTableViewCell.xib */,
 				0CF3325C20660FDE00F6EACA /* AnimeView.xib */,
+				0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */,
+				0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */,
+				0CE57E662066CB290022DAE2 /* NibView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +313,9 @@
 		589D0EAE2065DADE00EA2A47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					WatchingStatus,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = MALPro;
@@ -349,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CF3324C2065E95200F6EACA /* AnimeTableViewCell.xib in Resources */,
+				0CE57E652066C4BC0022DAE2 /* AnimeInfoView.xib in Resources */,
 				589D0EC42065DADE00EA2A47 /* LaunchScreen.storyboard in Resources */,
 				0CF3325D20660FDE00F6EACA /* AnimeView.xib in Resources */,
 				589D0EC12065DADE00EA2A47 /* Assets.xcassets in Resources */,
@@ -380,12 +394,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-MALPro/Pods-MALPro-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
 				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
@@ -435,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */,
 				581EE1B9206686E100C8FDDB /* AppDelegate.swift in Sources */,
 				581EE1B8206686D900C8FDDB /* AnimePerson.swift in Sources */,
 				581EE1B7206686C400C8FDDB /* AnimeCharacter.swift in Sources */,
@@ -445,8 +462,10 @@
 				5855D9C4206603410054E244 /* ModelUtils.swift in Sources */,
 				5855D9C620660BA10054E244 /* AnimeEpisode.swift in Sources */,
 				0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */,
+				0CE57E632066C4AC0022DAE2 /* AnimeInfoView.swift in Sources */,
 				0CF332462065E52F00F6EACA /* DrawerViewController.swift in Sources */,
 				58BC32F620668ACF0088C06D /* NetworkingError.swift in Sources */,
+				0CE57E672066CB290022DAE2 /* NibView.swift in Sources */,
 				0CF332502065F67300F6EACA /* AnimeList.swift in Sources */,
 				0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */,
 				0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */,
