@@ -12,6 +12,7 @@ import Alamofire
 public class MALNetworkController {
     
     let JIKAN_BASE_URL = "https://api.jikan.me"
+    let MAL_BASE_URL = "https://myanimelist.net"
     
     // Get UIImage for image url
     @discardableResult
@@ -132,6 +133,7 @@ public class MALNetworkController {
         }
     }
     
+    // Do a search of all people
     @discardableResult
     func searchPeople(query: String, pageNumber: Int, completionHandler: @escaping([AnimePerson]?) -> Void) -> Alamofire.DataRequest {
         let cleanedQuery = query.replacingOccurrences(of: " ", with: "+")
@@ -148,6 +150,43 @@ public class MALNetworkController {
             }
             
             completionHandler(searchResults)
+        }
+    }
+    
+    // Sign a user in
+    @discardableResult
+    func userAuthentication(username: String, password: String, completionHandler: @escaping(User?) -> Void) -> Alamofire.DataRequest {
+        return Alamofire.request("\(MAL_BASE_URL)/api/account/verify_credentials.xml").authenticate(user: username, password: password).responseXMLDocument { response in
+            guard let xmlDocument = response.value else {
+                completionHandler(nil)
+                return
+            }
+            
+            if let root = xmlDocument.root {
+                let id = root.firstChild(tag: "id")?.numberValue
+                let username = root.firstChild(tag: "username")?.stringValue
+                completionHandler(User(id: (id?.intValue)!, username: username!))
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+    
+    // Get entire animelist of user
+    @discardableResult
+    func userAnimeList(username: String, completionHandler: @escaping(AnimeList?) -> Void) -> Alamofire.DataRequest {
+        return Alamofire.request("\(MAL_BASE_URL)/malappinfo.php?u=\(username)&status=all&type=anime").responseXMLDocument { response in
+            guard let xmlDocument = response.value else {
+                completionHandler(nil)
+                return
+            }
+            
+            guard let root = xmlDocument.root else {
+                completionHandler(nil)
+                return
+            }
+            
+            completionHandler(XMLConvert.convert(root: root))
         }
     }
 }
