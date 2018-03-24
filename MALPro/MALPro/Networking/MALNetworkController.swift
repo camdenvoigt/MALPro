@@ -15,29 +15,30 @@ public class MALNetworkController {
     
     // Get anime list by id
     @discardableResult
-    func getAnime(id: Int, completionHandler: @escaping(DataResponse<Anime>) -> Void) -> Alamofire.DataRequest {
+    func getAnime(id: Int, completionHandler: @escaping(Anime?) -> Void) -> Alamofire.DataRequest {
         return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(id)").responseJSON { response in
             let animeResponse = response.flatMap { json in
                 try Anime(data: json)
             }
             
-            completionHandler(animeResponse)
+            completionHandler(animeResponse.value)
         }
     }
     
     // Get all characters from a given anime
-//    @discardableResult
-//    func getCharacters(id: Int, completionHandler: @escaping(DataResponse<AnimeCharacter>) -> Void) -> Alamofire.DataRequest {
-//        return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(id)/characters").responseJSON { response in
-//            let animeResponse = response.flatMap { json in
-//                try Anime(data: json)
-//            }
-//
-//            if let anime = animeResponse.value {
-//
-//            }
-//
-//            completionHandler(animeResponse)
-//        }
-//    }
+    @discardableResult
+    func getCharacters(id: Int, completionHandler: @escaping([AnimeCharacter]?) -> Void) -> Alamofire.DataRequest {
+        return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(id)/characters").responseJSON { response in
+            let animeResponse = response.flatMap { json in
+                try Anime(data: json)
+            }
+
+            if let anime = animeResponse.value
+            {
+                completionHandler(anime.characters)
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
 }
