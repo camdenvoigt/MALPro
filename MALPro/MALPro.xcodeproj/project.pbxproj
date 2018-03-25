@@ -27,7 +27,7 @@
 		581EE1B8206686D900C8FDDB /* AnimePerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EEA2065DCE500EA2A47 /* AnimePerson.swift */; };
 		581EE1B9206686E100C8FDDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589D0EB92065DADE00EA2A47 /* AppDelegate.swift */; };
 		583035AC2066B2BB00580992 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583035AB2066B2BB00580992 /* User.swift */; };
-		583035AE2066CAEA00580992 /* XMLConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583035AD2066CAEA00580992 /* XMLConvert.swift */; };
+		583035AE2066CAEA00580992 /* XMLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583035AD2066CAEA00580992 /* XMLHelpers.swift */; };
 		583BC1F82066A64000DD0F70 /* DataResponse+XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BC1F72066A64000DD0F70 /* DataResponse+XML.swift */; };
 		5855D9C4206603410054E244 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C3206603410054E244 /* ModelUtils.swift */; };
 		5855D9C620660BA10054E244 /* AnimeEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5855D9C520660BA10054E244 /* AnimeEpisode.swift */; };
@@ -78,7 +78,7 @@
 		0CF3324F2065F67300F6EACA /* AnimeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeList.swift; sourceTree = "<group>"; };
 		0CF3325C20660FDE00F6EACA /* AnimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeView.xib; sourceTree = "<group>"; };
 		583035AB2066B2BB00580992 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		583035AD2066CAEA00580992 /* XMLConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLConvert.swift; sourceTree = "<group>"; };
+		583035AD2066CAEA00580992 /* XMLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLHelpers.swift; sourceTree = "<group>"; };
 		583BC1F72066A64000DD0F70 /* DataResponse+XML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataResponse+XML.swift"; sourceTree = "<group>"; };
 		5855D9C12065EC9A0054E244 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		5855D9C3206603410054E244 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 				58BC32F520668ACF0088C06D /* NetworkingError.swift */,
 				589D0EEF2065E19C00EA2A47 /* MALNetworkController.swift */,
 				583BC1F72066A64000DD0F70 /* DataResponse+XML.swift */,
-				583035AD2066CAEA00580992 /* XMLConvert.swift */,
+				583035AD2066CAEA00580992 /* XMLHelpers.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -479,6 +479,7 @@
 				0CBB587420671E5F003A71F3 /* ImageCollectionViewCell.swift in Sources */,
 				583035AE2066CAEA00580992 /* XMLConvert.swift in Sources */,
 				0CBB586F20670AE4003A71F3 /* ButtonExtension.swift in Sources */,
+				583035AE2066CAEA00580992 /* XMLHelpers.swift in Sources */,
 				581EE1B7206686C400C8FDDB /* AnimeCharacter.swift in Sources */,
 				589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */,
 				583035AC2066B2BB00580992 /* User.swift in Sources */,

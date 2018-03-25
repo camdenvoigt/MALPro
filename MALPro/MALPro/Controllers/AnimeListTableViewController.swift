@@ -12,7 +12,7 @@ class AnimeListTableViewController: UITableViewController {
     
     let ROW_HEIGHT = 120.0 as CGFloat
     
-    var networkingController = MALNetworkController()
+    var networkingController = MALNetworkController.sharedInstance
     var animeList: AnimeList?
     var listType: AnimeStatus?
     

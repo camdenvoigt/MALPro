@@ -9,8 +9,8 @@
 import Foundation
 import Fuzi
 
-public class XMLConvert {
-    static func convert(root: XMLElement?) -> AnimeList? {
+public class XMLHelpers {
+    static func convertXMLToAnimeList(root: XMLElement?) -> AnimeList? {
         guard let root = root else {
             return nil
         }
@@ -57,5 +57,28 @@ public class XMLConvert {
         }
         
         return list
+    }
+    
+    static func createXMLParameters(anime: Anime) -> [String: Any] {
+        let data = """
+        <?xml version="1.0" encoding="UTF-8"?>
+        <entry>
+            <episode>\(anime.episodesWatched ?? 0)</episode>
+            <status>\(ModelUtils.animeStatusAsInt(status:anime.userStatus!))</status>
+            <score>\(anime.userScore ?? 0)</score>
+            <storage_type></storage_type>
+            <storage_value></storage_value>
+            <times_rewatched></times_rewatched>
+            <rewatch_value></rewatch_value>
+            <date_start></date_start>
+            <date_finish></date_finish>
+            <priority></priority>
+            <enable_discussion></enable_discussion>
+            <enable_rewatching></enable_rewatching>
+            <comments></comments>
+            <tags></tags>
+        </entry>
+        """
+        return ["data": data]
     }
 }

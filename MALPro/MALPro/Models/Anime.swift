@@ -111,7 +111,7 @@ public class Anime {
         self.popularity = json["popularity"] as? Int
         self.members = json["members"] as? Int
         self.favorites = json["favorites"] as? Int
-        self.synopsis = String(utf8String: ((json["synopsis"] as? String)?.cString(using: String.Encoding.utf8))!)
+        self.synopsis = ModelUtils.fixUnicode(value: json["synopsis"] as? String)
         self.background = json["background"] as? String
         self.premiered = json["premiered"] as? String
         self.broadcast = json["boradcast"] as? String
@@ -125,24 +125,6 @@ public class Anime {
             self.genres = [String]()
             for genre in genreList {
                 self.genres!.append((genre["name"] as? String)!)
-            }
-        }
-        if let characters = json["character"] as? [[String: Any?]] {
-            self.characters = [AnimeCharacter]()
-            for character in characters {
-                self.characters!.append(AnimeCharacter(dict: character))
-            }
-        }
-        if let episodes = json["episode"] as? [[String: Any?]] {
-            self.episodes = [AnimeEpisode]()
-            for episode in episodes {
-                self.episodes!.append(AnimeEpisode(dict: episode))
-            }
-        }
-        if let people = json["staff"] as? [[String: Any?]] {
-            self.staff = [AnimePerson]()
-            for person in people {
-                self.staff!.append(AnimePerson(dict: person, search: false))
             }
         }
     }
