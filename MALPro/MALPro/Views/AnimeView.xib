@@ -58,15 +58,6 @@
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="10"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
@@ -91,7 +82,6 @@
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="layout.cornerRadius" value="10"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
@@ -116,7 +106,6 @@
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="layout.cornerRadius" value="10"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                             <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
@@ -150,7 +139,7 @@
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcB-YJ-o6P" customClass="ImageCollectionView" customModule="MALPro" customModuleProvider="target">
                                     <rect key="frame" x="8" y="340.5" width="375" height="200"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="jgY-RW-Nri"/>
                                     </constraints>
@@ -161,6 +150,7 @@
                                 <constraint firstItem="uA2-dB-irY" firstAttribute="top" secondItem="r9e-66-eTH" secondAttribute="top" constant="8" id="4Vm-xB-n0Y"/>
                                 <constraint firstItem="UcB-YJ-o6P" firstAttribute="leading" secondItem="9km-Tu-Ww1" secondAttribute="leading" id="7YW-Nc-bde"/>
                                 <constraint firstItem="UcB-YJ-o6P" firstAttribute="trailing" secondItem="9km-Tu-Ww1" secondAttribute="trailing" id="Hvr-1b-Yc9"/>
+                                <constraint firstAttribute="trailing" secondItem="9km-Tu-Ww1" secondAttribute="trailing" constant="8" id="JI9-H1-pR3"/>
                                 <constraint firstItem="9km-Tu-Ww1" firstAttribute="leading" secondItem="r9e-66-eTH" secondAttribute="leading" constant="8" id="Qbd-ho-Ih2"/>
                                 <constraint firstItem="uA2-dB-irY" firstAttribute="leading" secondItem="r9e-66-eTH" secondAttribute="leading" constant="8" id="Wrj-W5-SL2"/>
                                 <constraint firstItem="MgX-gE-KOW" firstAttribute="leading" secondItem="uA2-dB-irY" secondAttribute="trailing" constant="8" id="frO-HE-pcK"/>
@@ -174,7 +164,6 @@
                                 <constraint firstItem="r95-FS-M7U" firstAttribute="top" secondItem="BoL-JK-jTC" secondAttribute="top" id="w3y-Xe-phr"/>
                                 <constraint firstItem="UcB-YJ-o6P" firstAttribute="top" secondItem="9km-Tu-Ww1" secondAttribute="bottom" constant="8" id="wwC-0V-GlC"/>
                                 <constraint firstItem="hWI-wQ-Yru" firstAttribute="leading" secondItem="r95-FS-M7U" secondAttribute="trailing" constant="16" id="yqh-90-py0"/>
-                                <constraint firstAttribute="trailing" secondItem="9km-Tu-Ww1" secondAttribute="trailing" constant="8" id="zmn-a2-T0d"/>
                             </constraints>
                         </view>
                     </subviews>

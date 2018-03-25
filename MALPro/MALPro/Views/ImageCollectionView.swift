@@ -8,29 +8,28 @@
 
 import UIKit
 
-class ImageCollectionView: UIView, UICollectionViewDataSource {
+class ImageCollectionView: UICollectionView, UICollectionViewDataSource {
     
     private let reuseIdentifier = "ImageCollectionViewCell"
-    
-    private var collectionView: UICollectionView?
 
     var collection: [ImageCollectible]?
     
     override func awakeFromNib() {
-        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView!.dataSource = self
-        collectionView!.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        self.addSubview(collectionView!)
+        setUpLayout()
+        self.dataSource = self
+        self.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    private func setUpLayout() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        self.collectionViewLayout = flowLayout
     }
     
     func setCollection(collection: [ImageCollectible]) {
         self.collection = collection
-        collectionView!.reloadData()
+        self.reloadData()
         fetchImages()
-    }
-    
-    func setDelegate(delegate: UICollectionViewDelegateFlowLayout) {
-        collectionView!.delegate = delegate
     }
     
     //MARK: - UICollectionViewDataSource Methods
@@ -53,18 +52,9 @@ class ImageCollectionView: UIView, UICollectionViewDataSource {
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! ImageCollectionViewCell
-        
         let collectible = collection![indexPath.row]
         cell.setUpForImageCollectible(collectible: collectible)
         return cell
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if (!__CGSizeEqualToSize(self.bounds.size, self.intrinsicContentSize)) {
-            self.invalidateIntrinsicContentSize()
-        }
     }
     
     //MARK: - Private Helper Methods
@@ -74,8 +64,8 @@ class ImageCollectionView: UIView, UICollectionViewDataSource {
             return
         }
         
-        let networkController = MALNetworkController()
-        for (index, var collectible) in collection.enumerated() {
+        let networkController = MALNetworkController.sharedInstance
+        for var collectible in collection {
             if collectible.image != nil {
                 continue
             }
@@ -85,20 +75,8 @@ class ImageCollectionView: UIView, UICollectionViewDataSource {
                 }
                 collectible.image = image
                 
-                self.reloadItem(at: index)
+                self.reloadData()
             }
         }
-    }
-    
-    private func reloadItem(at index: Int) {
-        guard let collectionView = collectionView else {
-            return
-        }
-        
-        guard let indexPath = collectionView.indexPathForItem(at: CGPoint(x: 0, y: index)) else {
-            return
-        }
-        
-        collectionView.reloadItems(at: [indexPath])
     }
 }

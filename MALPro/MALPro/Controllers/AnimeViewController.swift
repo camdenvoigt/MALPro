@@ -159,7 +159,7 @@ class AnimeViewController: UIViewController {
 extension AnimeViewController: UICollectionViewDelegateFlowLayout {
     
     func setUpCharacterCollectionView() {
-        characterCollection.setDelegate(delegate: self)
+        characterCollection.delegate = self
         
         networkingController.getAnimeCharacters(animeId: anime.id) { characters in
             guard let characters = characters else {
@@ -173,7 +173,7 @@ extension AnimeViewController: UICollectionViewDelegateFlowLayout {
     //MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 90.0, height: 170.0)
+        return CGSize(width: 70, height: 140)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

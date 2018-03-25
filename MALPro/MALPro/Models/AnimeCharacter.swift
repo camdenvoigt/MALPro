@@ -81,7 +81,6 @@ public class AnimeCharacter: ImageCollectible {
     }
     
     func getSubLabel() -> String? {
-        //TODO: Fix this to return the actual character type
-        return "Main"
+        return role?.rawValue
     }
 }
