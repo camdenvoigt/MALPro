@@ -26,7 +26,7 @@ enum AnimeSourceType {
 }
 
 enum AnimeStatus: String {
-    case notAdded = "Not Added"
+    case notAdded = "Not in List"
     case watching = "Watching"
     case completed = "Completed"
     case onHold = "On Hold"

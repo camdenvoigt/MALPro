@@ -6,20 +6,22 @@
 //  Copyright © 2018 MALPro. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum CharacterType {
     case main
     case supporting
 }
 
-public class AnimeCharacter {
+public class AnimeCharacter: ImageCollectible {
+    
     var id: Int
     var canonicalLink: URL?
     var name: String?
     var nameJapanese: String?
     var about: String?
     var favorites: Int?
+    var image: UIImage?
     var imageUrl: URL?
     var voiceActors: [AnimePerson]?
     
@@ -53,5 +55,16 @@ public class AnimeCharacter {
         self.name = dict["name"] as? String
         self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
         self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
+    }
+    
+    //MARK: - ImageCollectible Methods
+    
+    func getLabel() -> String? {
+        return name
+    }
+    
+    func getSubLabel() -> String? {
+        //TODO: Fix this to return the actual character type
+        return "Main"
     }
 }

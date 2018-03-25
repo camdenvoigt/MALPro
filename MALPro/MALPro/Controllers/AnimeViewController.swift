@@ -12,6 +12,7 @@ import ActionSheetPicker_3_0
 class AnimeViewController: UIViewController {
     
     let watchingStatusPickerData = [
+        AnimeStatus.notAdded.rawValue,
         AnimeStatus.planToWatch.rawValue,
         AnimeStatus.watching.rawValue,
         AnimeStatus.onHold.rawValue,
@@ -20,11 +21,12 @@ class AnimeViewController: UIViewController {
     ]
     
     @IBOutlet weak var coverImage: UIImageView!
-    @IBOutlet weak var animeInfo: AnimeInfoView!
-    @IBOutlet weak var watchingStatus: UIButton!
-    @IBOutlet weak var progress: UIButton!
-    @IBOutlet weak var scorePicker: UIButton!
+    @IBOutlet weak var animeInfoView: AnimeInfoView!
+    @IBOutlet weak var watchingStatusButton: UIButton!
+    @IBOutlet weak var progressButton: UIButton!
+    @IBOutlet weak var scoreButton: UIButton!
     @IBOutlet weak var synopsis: UITextView!
+    @IBOutlet weak var characterCollection: ImageCollectionView!
     
     var networkingController = MALNetworkController()
     var anime: Anime!
@@ -46,6 +48,7 @@ class AnimeViewController: UIViewController {
         
         self.navigationItem.title = anime.title!
         updateView()
+        setUpCharacterCollectionView()
         
         if  nil == anime.image {
             networkingController.getImage(url: anime.imageUrl!) { image in
@@ -78,7 +81,7 @@ class AnimeViewController: UIViewController {
             synopsis.text = anime.synopsis
         }
 
-        animeInfo.fillInfo(anime: anime)
+        animeInfoView.fillInfo(anime: anime)
         setWatchingStatusButtonText()
         setProgressButtonText()
         setScoreButtonText()
@@ -92,9 +95,10 @@ class AnimeViewController: UIViewController {
     // MARK: - Picker Methods
     
     @IBAction func watchingStatusClicked(_ sender: UIButton) {
+        let initialSelction = watchingStatusPickerData.index(of: anime.userStatus!.rawValue) ?? 0
         ActionSheetMultipleStringPicker.show(withTitle: "Watching Status", rows: [
             watchingStatusPickerData
-            ], initialSelection: [0], doneBlock: {
+            ], initialSelection: [initialSelction], doneBlock: {
                 picker, indexes, values in
                 
                 let watchingValues = values as! [String]
@@ -140,14 +144,40 @@ class AnimeViewController: UIViewController {
     }
     
     private func setWatchingStatusButtonText() {
-        watchingStatus.titleLabel?.text = anime.userStatus!.rawValue
+        watchingStatusButton.setTitle(" \(anime.userStatus!.rawValue)", for: .normal)
     }
     
     private func setProgressButtonText() {
-        progress.titleLabel?.text = "\(anime.episodesWatched!)/\(self.anime!.episodeCount!)"
+        progressButton.setTitle(" \(anime.episodesWatched!)/\(self.anime!.episodeCount!)", for: .normal)
     }
     
     private func setScoreButtonText() {
-        scorePicker.titleLabel?.text = "\(anime.userScore!)/10"
+        scoreButton.setTitle(" \(anime.userScore!)/10", for: .normal)
+    }
+}
+
+extension AnimeViewController: UICollectionViewDelegateFlowLayout {
+    
+    func setUpCharacterCollectionView() {
+        characterCollection.setDelegate(delegate: self)
+        
+        networkingController.getAnimeCharacters(animeId: anime.id) { characters in
+            guard let characters = characters else {
+                return
+            }
+            self.anime.characters = characters
+            self.characterCollection.setCollection(collection: characters)
+        }
+    }
+    
+    //MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 90.0, height: 170.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = anime!.characters![indexPath.row]
+        print(character.name!)
     }
 }

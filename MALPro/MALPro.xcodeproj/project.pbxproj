@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CBB586F20670AE4003A71F3 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB586E20670AE4003A71F3 /* ButtonExtension.swift */; };
+		0CBB587120671CEE003A71F3 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB587020671CEE003A71F3 /* ImageCollectionView.swift */; };
+		0CBB587420671E5F003A71F3 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB587220671E5F003A71F3 /* ImageCollectionViewCell.swift */; };
+		0CBB587520671E5F003A71F3 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB587320671E5F003A71F3 /* ImageCollectionViewCell.xib */; };
+		0CBB5877206720BF003A71F3 /* ImageCollectible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBB5876206720BF003A71F3 /* ImageCollectible.swift */; };
 		0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */; };
 		0CE57E632066C4AC0022DAE2 /* AnimeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */; };
 		0CE57E652066C4BC0022DAE2 /* AnimeInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */; };
@@ -56,6 +61,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CBB586E20670AE4003A71F3 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		0CBB587020671CEE003A71F3 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
+		0CBB587220671E5F003A71F3 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		0CBB587320671E5F003A71F3 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		0CBB5876206720BF003A71F3 /* ImageCollectible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectible.swift; sourceTree = "<group>"; };
 		0CE57E5F20668A010022DAE2 /* AnimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewController.swift; sourceTree = "<group>"; };
 		0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoView.swift; sourceTree = "<group>"; };
 		0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeInfoView.xib; sourceTree = "<group>"; };
@@ -131,6 +141,10 @@
 				0CE57E622066C4AC0022DAE2 /* AnimeInfoView.swift */,
 				0CE57E642066C4BC0022DAE2 /* AnimeInfoView.xib */,
 				0CE57E662066CB290022DAE2 /* NibView.swift */,
+				0CBB586E20670AE4003A71F3 /* ButtonExtension.swift */,
+				0CBB587020671CEE003A71F3 /* ImageCollectionView.swift */,
+				0CBB587220671E5F003A71F3 /* ImageCollectionViewCell.swift */,
+				0CBB587320671E5F003A71F3 /* ImageCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +228,7 @@
 				0CF3324F2065F67300F6EACA /* AnimeList.swift */,
 				5855D9C3206603410054E244 /* ModelUtils.swift */,
 				583035AB2066B2BB00580992 /* User.swift */,
+				0CBB5876206720BF003A71F3 /* ImageCollectible.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -367,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CBB587520671E5F003A71F3 /* ImageCollectionViewCell.xib in Resources */,
 				0CF3324C2065E95200F6EACA /* AnimeTableViewCell.xib in Resources */,
 				0CE57E652066C4BC0022DAE2 /* AnimeInfoView.xib in Resources */,
 				589D0EC42065DADE00EA2A47 /* LaunchScreen.storyboard in Resources */,
@@ -460,7 +476,9 @@
 				0CE57E612066AC800022DAE2 /* AnimeViewController.swift in Sources */,
 				581EE1B9206686E100C8FDDB /* AppDelegate.swift in Sources */,
 				581EE1B8206686D900C8FDDB /* AnimePerson.swift in Sources */,
+				0CBB587420671E5F003A71F3 /* ImageCollectionViewCell.swift in Sources */,
 				583035AE2066CAEA00580992 /* XMLConvert.swift in Sources */,
+				0CBB586F20670AE4003A71F3 /* ButtonExtension.swift in Sources */,
 				581EE1B7206686C400C8FDDB /* AnimeCharacter.swift in Sources */,
 				589D0EF02065E19C00EA2A47 /* MALNetworkController.swift in Sources */,
 				583035AC2066B2BB00580992 /* User.swift in Sources */,
@@ -468,6 +486,7 @@
 				583BC1F82066A64000DD0F70 /* DataResponse+XML.swift in Sources */,
 				589D0EE92065DC8E00EA2A47 /* Anime.swift in Sources */,
 				5855D9C4206603410054E244 /* ModelUtils.swift in Sources */,
+				0CBB587120671CEE003A71F3 /* ImageCollectionView.swift in Sources */,
 				5855D9C620660BA10054E244 /* AnimeEpisode.swift in Sources */,
 				0CF332392065E21700F6EACA /* MALTabBarController.swift in Sources */,
 				0CE57E632066C4AC0022DAE2 /* AnimeInfoView.swift in Sources */,
@@ -476,6 +495,7 @@
 				0CE57E672066CB290022DAE2 /* NibView.swift in Sources */,
 				0CF332502065F67300F6EACA /* AnimeList.swift in Sources */,
 				0CF3324B2065E95200F6EACA /* AnimeTableViewCell.swift in Sources */,
+				0CBB5877206720BF003A71F3 /* ImageCollectible.swift in Sources */,
 				0CF3324E2065EE2100F6EACA /* AnimeListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
