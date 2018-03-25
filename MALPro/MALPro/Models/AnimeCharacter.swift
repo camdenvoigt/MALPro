@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum CharacterType {
-    case main
-    case supporting
+enum CharacterType: String {
+    case main = "Main"
+    case supporting = "Supporting"
 }
 
 public class AnimeCharacter {
@@ -22,6 +22,7 @@ public class AnimeCharacter {
     var favorites: Int?
     var imageUrl: URL?
     var voiceActors: [AnimePerson]?
+    var role: CharacterType?
     
     init(id: Int) {
         self.id = id
@@ -53,5 +54,21 @@ public class AnimeCharacter {
         self.name = dict["name"] as? String
         self.canonicalLink = ModelUtils.urlFromString(dict["url"] as? String)
         self.imageUrl = ModelUtils.urlFromString(dict["image_url"] as? String)
+        self.role = characterTypeFromString(dict["role"] as? String)
+    }
+    
+    private func characterTypeFromString(_ value: String?) -> CharacterType? {
+        guard let value = value else {
+            return nil
+        }
+        
+        switch value {
+            case "Main":
+                return CharacterType.main
+            case "Supporting":
+                return CharacterType.supporting
+            default:
+                return CharacterType.supporting
+        }
     }
 }

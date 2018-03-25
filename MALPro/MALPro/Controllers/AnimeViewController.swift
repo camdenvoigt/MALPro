@@ -26,7 +26,7 @@ class AnimeViewController: UIViewController {
     @IBOutlet weak var scorePicker: UIButton!
     @IBOutlet weak var synopsis: UITextView!
     
-    var networkingController = MALNetworkController()
+    var networkingController = MALNetworkController.sharedInstance
     var anime: Anime!
     
     init(anime: Anime) {

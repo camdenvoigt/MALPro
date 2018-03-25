@@ -60,12 +60,12 @@ public class XMLHelpers {
     }
     
     static func createXMLParameters(anime: Anime) -> [String: Any] {
-        var data = """
+        let data = """
         <?xml version="1.0" encoding="UTF-8"?>
         <entry>
-            <episode>\(anime.episodesWatched)</episode>
+            <episode>\(anime.episodesWatched ?? 0)</episode>
             <status>\(ModelUtils.animeStatusAsInt(status:anime.userStatus!))</status>
-            <score>\(anime.userScore)</score>
+            <score>\(anime.userScore ?? 0)</score>
             <storage_type></storage_type>
             <storage_value></storage_value>
             <times_rewatched></times_rewatched>
