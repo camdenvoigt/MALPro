@@ -49,4 +49,24 @@ public class ModelUtils {
                 return 5
         }
     }
+    
+    static func fixUnicode(value: String?) -> String? {
+        guard let value = value else {
+            return nil
+        }
+        
+        let encodedData = value.data(using: .utf8)
+        let attributedOptions : [NSAttributedString.DocumentReadingOptionKey: Any] =
+            [
+                NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                NSAttributedString.DocumentReadingOptionKey.characterEncoding: 4
+            ]
+        
+        do {
+            let attributedString = try NSAttributedString(data: encodedData!, options: attributedOptions, documentAttributes: nil)
+            return attributedString.string
+        } catch {
+            return value
+        }
+    }
 }

@@ -21,7 +21,7 @@ class MALTabBarController: UITabBarController {
         
         setUpViewControllers()
         
-        let neworkController = MALNetworkController()
+        let neworkController = MALNetworkController.sharedInstance
         neworkController.userAnimeList(username: "ProofsGuy") { animeList in
             guard let animeList = animeList else {
                 return

@@ -13,7 +13,10 @@ public class MALNetworkController {
     
     let JIKAN_BASE_URL = "https://api.jikan.me"
     let MAL_BASE_URL = "https://myanimelist.net"
+    static var sharedInstance = MALNetworkController()
     
+    private init() {}
+
     // Get UIImage for image url
     @discardableResult
     func getImage(url: URL,completionHandler: @escaping(UIImage?) -> Void) -> Alamofire.DataRequest {
@@ -42,17 +45,33 @@ public class MALNetworkController {
     @discardableResult
     func getAnimeCharacters(animeId: Int, completionHandler: @escaping([AnimeCharacter]?) -> Void) -> Alamofire.DataRequest {
         return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(animeId)/characters_staff").responseJSON { response in
-            let animeResponse = response.flatMap { json in
-                try Anime(data: json)
+            let charactersResponse = response.flatMap { json in
+                try self.getCharacters(data: json)
             }
 
-            if let anime = animeResponse.value
+            if let characters = charactersResponse.value
             {
-                completionHandler(anime.characters)
+                completionHandler(characters)
             } else {
                 completionHandler(nil)
             }
         }
+    }
+    
+    private func getCharacters(data: Any)throws -> [AnimeCharacter] {
+        guard let json = data as? [String: Any] else {
+            throw NetworkError.JSONCastError("Could not cast data object for Characters")
+        }
+        
+        var characters = [AnimeCharacter]()
+        
+        if let characterData = json["character"] as? [[String: Any?]] {
+            for character in characterData {
+                characters.append(AnimeCharacter(dict: character))
+            }
+        }
+        
+        return characters
     }
     
     // Get all episodes from a given anime
@@ -60,33 +79,65 @@ public class MALNetworkController {
     func getAnimeEpisodes(animeId: Int, completionHandler: @escaping([AnimeEpisode]?) -> Void) -> Alamofire.DataRequest {
         return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(animeId)/episodes").responseJSON { response in
             let animeResponse = response.flatMap { json in
-                try Anime(data: json)
+               try self.getEpisodes(data: json)
             }
             
-            if let anime = animeResponse.value
+            if let episodes = animeResponse.value
             {
-                completionHandler(anime.episodes)
+                completionHandler(episodes)
             } else {
                 completionHandler(nil)
             }
         }
     }
     
+    private func getEpisodes(data: Any) throws -> [AnimeEpisode] {
+        guard let json = data as? [String: Any] else {
+            throw NetworkError.JSONCastError("Could not cast data object for Episodes")
+        }
+        
+        var episodes = [AnimeEpisode]()
+        
+        if let episodeData = json["episode"] as? [[String: Any?]] {
+            for episode in episodeData {
+                episodes.append(AnimeEpisode(dict: episode))
+            }
+        }
+        
+        return episodes
+    }
+    
     // Get all episodes from a given anime
     @discardableResult
     func getAnimePeople(animeId: Int, completionHandler: @escaping([AnimePerson]?) -> Void) -> Alamofire.DataRequest {
         return Alamofire.request("\(JIKAN_BASE_URL)/anime/\(animeId)/characters_staff").responseJSON { response in
-            let animeResponse = response.flatMap { json in
-                try Anime(data: json)
+            let personResponse = response.flatMap { json in
+                try self.getPeople(data: json)
             }
             
-            if let anime = animeResponse.value
+            if let people = personResponse.value
             {
-                completionHandler(anime.staff)
+                completionHandler(people)
             } else {
                 completionHandler(nil)
             }
         }
+    }
+    
+    private func getPeople(data: Any) throws -> [AnimePerson] {
+        guard let json = data as? [String: Any] else {
+            throw NetworkError.JSONCastError("Could not cast data object for Episodes")
+        }
+        
+        var people = [AnimePerson]()
+        
+        if let personData = json["staff"] as? [[String: Any?]] {
+            for person in personData {
+                people.append(AnimePerson(dict: person, search: false))
+            }
+        }
+        
+        return people
     }
     
     // Get a single person with full data
